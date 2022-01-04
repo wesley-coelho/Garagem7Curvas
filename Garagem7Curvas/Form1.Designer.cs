@@ -43,15 +43,6 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dtgListaFinanciamento = new System.Windows.Forms.DataGridView();
-            this.Col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNUmero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCEP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ColParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +51,30 @@
             this.ColStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.conectarAoFirebaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCEP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNUmero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCelular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColChassi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCidadeVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPlaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColQtdParcelas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -88,6 +103,8 @@
             // 
             // inicioToolStripMenuItem
             // 
+            this.inicioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.conectarAoFirebaseToolStripMenuItem});
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.inicioToolStripMenuItem.Text = "Inicio";
@@ -124,7 +141,9 @@
             this.toolStripButton2,
             this.toolStripButton3,
             this.toolStripButton4,
-            this.toolStripButton5});
+            this.toolStripButton5,
+            this.toolStripTextBox1,
+            this.toolStripButton6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 30);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 31);
@@ -182,21 +201,22 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 61);
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.splitContainer1.Panel1.Controls.Add(this.dtgListaFinanciamento);
             this.splitContainer1.Panel1.Margin = new System.Windows.Forms.Padding(20);
             this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(20);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(20);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(20);
             this.splitContainer1.Size = new System.Drawing.Size(800, 386);
-            this.splitContainer1.SplitterDistance = 161;
+            this.splitContainer1.SplitterDistance = 421;
             this.splitContainer1.TabIndex = 2;
             // 
             // dtgListaFinanciamento
@@ -206,82 +226,31 @@
             this.Col,
             this.ColCliente,
             this.ColCpf,
+            this.ColCEP,
             this.ColEnd,
+            this.ColNUmero,
             this.ColBairro,
             this.ColCidade,
-            this.ColNUmero,
-            this.ColCEP,
-            this.ColEstado});
+            this.ColEstado,
+            this.ColTelefone,
+            this.ColCelular,
+            this.ColEmail,
+            this.ColVeiculo,
+            this.ColAno,
+            this.ColChassi,
+            this.ColCidadeVeiculo,
+            this.ColCor,
+            this.ColMarca,
+            this.ColModelo,
+            this.ColPlaca,
+            this.ColQtdParcelas});
             this.dtgListaFinanciamento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgListaFinanciamento.Location = new System.Drawing.Point(20, 20);
             this.dtgListaFinanciamento.Name = "dtgListaFinanciamento";
             this.dtgListaFinanciamento.RowHeadersWidth = 51;
             this.dtgListaFinanciamento.RowTemplate.Height = 24;
-            this.dtgListaFinanciamento.Size = new System.Drawing.Size(756, 117);
+            this.dtgListaFinanciamento.Size = new System.Drawing.Size(377, 342);
             this.dtgListaFinanciamento.TabIndex = 0;
-            // 
-            // Col
-            // 
-            this.Col.HeaderText = "Id";
-            this.Col.MinimumWidth = 6;
-            this.Col.Name = "Col";
-            this.Col.Width = 125;
-            // 
-            // ColCliente
-            // 
-            this.ColCliente.HeaderText = "Cliente";
-            this.ColCliente.MinimumWidth = 6;
-            this.ColCliente.Name = "ColCliente";
-            this.ColCliente.Width = 125;
-            // 
-            // ColCpf
-            // 
-            this.ColCpf.HeaderText = "CPF";
-            this.ColCpf.MinimumWidth = 6;
-            this.ColCpf.Name = "ColCpf";
-            this.ColCpf.Width = 125;
-            // 
-            // ColEnd
-            // 
-            this.ColEnd.HeaderText = "Endereço";
-            this.ColEnd.MinimumWidth = 6;
-            this.ColEnd.Name = "ColEnd";
-            this.ColEnd.Width = 125;
-            // 
-            // ColBairro
-            // 
-            this.ColBairro.HeaderText = "Bairro";
-            this.ColBairro.MinimumWidth = 6;
-            this.ColBairro.Name = "ColBairro";
-            this.ColBairro.Width = 125;
-            // 
-            // ColCidade
-            // 
-            this.ColCidade.HeaderText = "Cidade";
-            this.ColCidade.MinimumWidth = 6;
-            this.ColCidade.Name = "ColCidade";
-            this.ColCidade.Width = 125;
-            // 
-            // ColNUmero
-            // 
-            this.ColNUmero.HeaderText = "Número";
-            this.ColNUmero.MinimumWidth = 6;
-            this.ColNUmero.Name = "ColNUmero";
-            this.ColNUmero.Width = 125;
-            // 
-            // ColCEP
-            // 
-            this.ColCEP.HeaderText = "CEP";
-            this.ColCEP.MinimumWidth = 6;
-            this.ColCEP.Name = "ColCEP";
-            this.ColCEP.Width = 125;
-            // 
-            // ColEstado
-            // 
-            this.ColEstado.HeaderText = "Estado";
-            this.ColEstado.MinimumWidth = 6;
-            this.ColEstado.Name = "ColEstado";
-            this.ColEstado.Width = 125;
             // 
             // dataGridView1
             // 
@@ -297,7 +266,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(756, 177);
+            this.dataGridView1.Size = new System.Drawing.Size(331, 342);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColParcela
@@ -353,6 +322,174 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
+            // conectarAoFirebaseToolStripMenuItem
+            // 
+            this.conectarAoFirebaseToolStripMenuItem.Name = "conectarAoFirebaseToolStripMenuItem";
+            this.conectarAoFirebaseToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.conectarAoFirebaseToolStripMenuItem.Text = "Conectar ao firebase";
+            // 
+            // Col
+            // 
+            this.Col.HeaderText = "Id";
+            this.Col.MinimumWidth = 6;
+            this.Col.Name = "Col";
+            this.Col.Width = 125;
+            // 
+            // ColCliente
+            // 
+            this.ColCliente.HeaderText = "Cliente";
+            this.ColCliente.MinimumWidth = 6;
+            this.ColCliente.Name = "ColCliente";
+            this.ColCliente.Width = 125;
+            // 
+            // ColCpf
+            // 
+            this.ColCpf.HeaderText = "CPF";
+            this.ColCpf.MinimumWidth = 6;
+            this.ColCpf.Name = "ColCpf";
+            this.ColCpf.Width = 125;
+            // 
+            // ColCEP
+            // 
+            this.ColCEP.HeaderText = "CEP";
+            this.ColCEP.MinimumWidth = 6;
+            this.ColCEP.Name = "ColCEP";
+            this.ColCEP.Width = 125;
+            // 
+            // ColEnd
+            // 
+            this.ColEnd.HeaderText = "Endereço";
+            this.ColEnd.MinimumWidth = 6;
+            this.ColEnd.Name = "ColEnd";
+            this.ColEnd.Width = 125;
+            // 
+            // ColNUmero
+            // 
+            this.ColNUmero.HeaderText = "Número";
+            this.ColNUmero.MinimumWidth = 6;
+            this.ColNUmero.Name = "ColNUmero";
+            this.ColNUmero.Width = 125;
+            // 
+            // ColBairro
+            // 
+            this.ColBairro.HeaderText = "Bairro";
+            this.ColBairro.MinimumWidth = 6;
+            this.ColBairro.Name = "ColBairro";
+            this.ColBairro.Width = 125;
+            // 
+            // ColCidade
+            // 
+            this.ColCidade.HeaderText = "Cidade";
+            this.ColCidade.MinimumWidth = 6;
+            this.ColCidade.Name = "ColCidade";
+            this.ColCidade.Width = 125;
+            // 
+            // ColEstado
+            // 
+            this.ColEstado.HeaderText = "Estado";
+            this.ColEstado.MinimumWidth = 6;
+            this.ColEstado.Name = "ColEstado";
+            this.ColEstado.Width = 125;
+            // 
+            // ColTelefone
+            // 
+            this.ColTelefone.HeaderText = "Telefone";
+            this.ColTelefone.MinimumWidth = 6;
+            this.ColTelefone.Name = "ColTelefone";
+            this.ColTelefone.Width = 125;
+            // 
+            // ColCelular
+            // 
+            this.ColCelular.HeaderText = "Celular";
+            this.ColCelular.MinimumWidth = 6;
+            this.ColCelular.Name = "ColCelular";
+            this.ColCelular.Width = 125;
+            // 
+            // ColEmail
+            // 
+            this.ColEmail.HeaderText = "Email";
+            this.ColEmail.MinimumWidth = 6;
+            this.ColEmail.Name = "ColEmail";
+            this.ColEmail.Width = 125;
+            // 
+            // ColVeiculo
+            // 
+            this.ColVeiculo.HeaderText = "Veículo";
+            this.ColVeiculo.MinimumWidth = 6;
+            this.ColVeiculo.Name = "ColVeiculo";
+            this.ColVeiculo.Width = 125;
+            // 
+            // ColAno
+            // 
+            this.ColAno.HeaderText = "Ano";
+            this.ColAno.MinimumWidth = 6;
+            this.ColAno.Name = "ColAno";
+            this.ColAno.Width = 125;
+            // 
+            // ColChassi
+            // 
+            this.ColChassi.HeaderText = "Chassi";
+            this.ColChassi.MinimumWidth = 6;
+            this.ColChassi.Name = "ColChassi";
+            this.ColChassi.Width = 125;
+            // 
+            // ColCidadeVeiculo
+            // 
+            this.ColCidadeVeiculo.HeaderText = "Cidade Veículo";
+            this.ColCidadeVeiculo.MinimumWidth = 6;
+            this.ColCidadeVeiculo.Name = "ColCidadeVeiculo";
+            this.ColCidadeVeiculo.Width = 125;
+            // 
+            // ColCor
+            // 
+            this.ColCor.HeaderText = "Cor";
+            this.ColCor.MinimumWidth = 6;
+            this.ColCor.Name = "ColCor";
+            this.ColCor.Width = 125;
+            // 
+            // ColMarca
+            // 
+            this.ColMarca.HeaderText = "Marca";
+            this.ColMarca.MinimumWidth = 6;
+            this.ColMarca.Name = "ColMarca";
+            this.ColMarca.Width = 125;
+            // 
+            // ColModelo
+            // 
+            this.ColModelo.HeaderText = "Modelo";
+            this.ColModelo.MinimumWidth = 6;
+            this.ColModelo.Name = "ColModelo";
+            this.ColModelo.Width = 125;
+            // 
+            // ColPlaca
+            // 
+            this.ColPlaca.HeaderText = "Placa";
+            this.ColPlaca.MinimumWidth = 6;
+            this.ColPlaca.Name = "ColPlaca";
+            this.ColPlaca.Width = 125;
+            // 
+            // ColQtdParcelas
+            // 
+            this.ColQtdParcelas.HeaderText = "Parcelas";
+            this.ColQtdParcelas.MinimumWidth = 6;
+            this.ColQtdParcelas.Name = "ColQtdParcelas";
+            this.ColQtdParcelas.Width = 125;
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(200, 31);
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton6.Text = "toolStripButton6";
+            // 
             // FrmJanelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -399,15 +536,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dtgListaFinanciamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCpf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColEnd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColBairro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNUmero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCEP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColEstado;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColVencimento;
@@ -416,6 +544,30 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStatus;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem conectarAoFirebaseToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCpf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCEP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColEnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNUmero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColBairro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTelefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCelular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColVeiculo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColAno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColChassi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCidadeVeiculo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColModelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPlaca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColQtdParcelas;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
     }
 }
 
