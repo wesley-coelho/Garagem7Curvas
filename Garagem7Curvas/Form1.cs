@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Garagem7Curvas
 {
-    public partial class Form1 : Form
+    public partial class FrmJanelaPrincipal : Form
     {
-        public Form1()
+        public FrmJanelaPrincipal()
         {
             InitializeComponent();
         }
