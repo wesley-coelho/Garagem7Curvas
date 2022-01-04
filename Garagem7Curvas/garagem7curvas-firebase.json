@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "garagem7curvas",
+  "private_key_id": "9394151183d937efe9ba9ba87f34d05bb8fcdc5f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCoMH2voLuHTakw\ngCQNnfH0H5PHprMykWiUliw4LTktOszWSE7CKxIMdEzI3Eq9102yW85wpOe6BRAZ\nDOqvckdGJ0MQCr7pg/i9jgbk+BvXprBLwn1zOm+b1gHNyN3o2obXmmar2sv01Bo+\nxIxjGxbevQ2HkPpvte4wPPoKLpCESUSijxDGo0WV0SA0kxBAG49nxPcKPEDEF4pG\nKtllbZw6azAx6PqfTjwd7GElE2HtbCAvvPitzxnp0niKAjHFFICTx9ZVlR+C2EF5\n1puqcxHgnkTiO6gFPM3pu4veElginvE9ZkKA6/WfiZnVlDBrfnr/hhk9k2Lcsvp0\nUAJXusapAgMBAAECggEAAry5Su1ZfUqlr9ZMtT5bufP1Rn5KHnml2Kc3WdmzO28g\ndstPTCiBycXvGvoU1aaboIUPJMpWQsgtenmOlzjg++gMgXC/VH297lh8Tb0o94Ht\nDr/qpUBZ9nti5PZkKtOQTBF6osjejAyTTxqz8zKgFRNsFTJQ6mus+vLUb0EnP8k1\nBjDjwfqRsrsa/mQq22t8lr97x/2huD8gca/tnq+CDDbtrJqGdYB03q0kuqex+RcX\nV1W618PReurYzJAfqH+i+jbGX8Ovxwr1XH5yxPP85ZXsht36MgiMMg7MkAfOlVDU\nfMKSGc0DJzw9FHkGTAcPmdbNBp16IjvDQOjA9WEcZQKBgQDjqYHAwlraO7WR4Xj3\n8IucxTmcfhegzXqKzvIkVzmQwtYyuOHntPq7mVs9sZpIAkaNiYs7hm0Yg3J+oZ/G\noj2ai+i9Ri2BFLiEdKO1DriCoBq7+vlWSUnc1nF2bxnAZjbu2vbg0Hd2Rt8c2za9\nVyXnbJBI9AtzGF0ID2K0HUhvtQKBgQC9H+AubPj9nIUcPIqfx8oHvYJTc/tpP45K\nfwhjyCWq7RjOnxUuEito4lTBptrwKrJCpARfaGOlk3/8nA6ZT3PBrwtCnS5ngsTa\nsa2RNI8XmuJGcsTavgfjbdFYa2wN740UWCPt2d8ETBxmw/nG6dtV+SbZkW+YT0Be\nSAr/6QYLpQKBgQCBo3mekU347X1UR8eBsHlf2TMYOPkteTSprHRYW08NbtVYZs1F\nC1qnzwkU1XicPqd8W3FsgPzIs7lUAKciDir0QW1Tso2g7nKwAldid7J7t73hg2XO\nS8eCuJ49qcBJPitT0l444JzWPj84iF/ga6rK4Jg84rNOY/Y967zyAabI7QKBgFlv\niYRq5BSKwCfqOWP2BwRCCi+M2YecFp4EFOOa8rUyClkrwchXr0+aOJqbXU3V4xbA\nmZDEvNrANfYvlnfJquQc8yY9ToSEwrLo8zuHr2NqSzclbxJCa1iRxj4aDq9IaV8F\nj3gbX+uYUpYGd0gprx+pA0ZAEJXmZHoxd4ItoD5BAoGAL9wPWaqNvH/ZIk6WjKN8\njp2YhPvtxn5cZmXn0P2pczxWqeWeRHAbGr7gsRb9Triu6O1Kf97eDupAQ5f3gLN8\nI8U9aZaCtPFwTERPn/Iz28yw2XmtyF9iOWy9SPD3gSTTvc2mwKhUId37/llEfnjg\njI6vJ7sQKjtONTu4Rb0CjG4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-jn2d5@garagem7curvas.iam.gserviceaccount.com",
+  "client_id": "105073651200213051134",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-jn2d5%40garagem7curvas.iam.gserviceaccount.com"
+}
