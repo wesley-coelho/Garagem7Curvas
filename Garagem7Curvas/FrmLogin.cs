@@ -15,10 +15,12 @@ namespace Garagem7Curvas
     {
 
         FrmJanelaPrincipal janelaPrincipal;
-        public FrmLogin(FrmJanelaPrincipal janelaPrincipal)
+        Usuario usuario;
+        public FrmLogin(FrmJanelaPrincipal janelaPrincipal, Usuario usuario)
         {
             InitializeComponent();
             this.janelaPrincipal = janelaPrincipal;
+            this.usuario = usuario;
         }
 
         
@@ -38,7 +40,7 @@ namespace Garagem7Curvas
 
                 foreach (var user in users)
                 {                     
-                    Usuario usuario = user.ConvertTo<Usuario>();
+                    this.usuario = user.ConvertTo<Usuario>();
                     if(usuario.Senha != tbSenha.Text)
                     {
                          lbStatus.Text = "Usuário ou senha incorretos.";
@@ -49,8 +51,8 @@ namespace Garagem7Curvas
                     }
                         this.Close();
                     janelaPrincipal.barraStatus.Text = "@" + usuario.Username;
-                        //chama função getFinanciamentos
-                    
+                    //chama função getFinanciamentos
+                    janelaPrincipal.getFinanciamentos();
                 }
                 lbStatus.Text = "Usuário ou senha incorretos.";
                 tbLoginUsuario.Clear();

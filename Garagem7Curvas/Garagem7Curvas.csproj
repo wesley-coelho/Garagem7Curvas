@@ -124,6 +124,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Financiamento.cs" />
     <Compile Include="FirestoreAttribute.cs" />
     <Compile Include="FrmJanelaPrincipal.cs">
       <SubType>Form</SubType>
