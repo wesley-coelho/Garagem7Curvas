@@ -24,31 +24,43 @@ namespace Garagem7Curvas
         
         private async void btnLoginConectar_Click(object sender, EventArgs e)
         {
+            lbStatus.Text = "logando...";
             string path = AppDomain.CurrentDomain.BaseDirectory + @"garagem7curvas-firebase.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
-            janelaPrincipal.db = FirestoreDb.Create("garagem7curvas");
-            janelaPrincipal.barraStatus.Text = "Conectado!";
+            janelaPrincipal.db = FirestoreDb.Create("garagem7curvas");           
 
             try
             {
+               
                 CollectionReference colRef = janelaPrincipal.db.Collection("usuarios");
                 Query userQuery = colRef.WhereEqualTo("Username", tbLoginUsuario.Text);
                 QuerySnapshot users = await userQuery.GetSnapshotAsync();
 
                 foreach (var user in users)
-                {
-                    if (user.Exists)
+                {                     
+                    Usuario usuario = user.ConvertTo<Usuario>();
+                    if(usuario.Senha != tbSenha.Text)
                     {
-                        //falta construir a classe Firestore de usuário 
-                        //para poder converter em objeto e fazer as comparações
+                         lbStatus.Text = "Usuário ou senha incorretos.";
+                         tbLoginUsuario.Clear();
+                         tbSenha.Clear();
+                         tbLoginUsuario.Focus();
+                         return;
                     }
+                        this.Close();
+                    janelaPrincipal.barraStatus.Text = "@" + usuario.Username;
+                        //chama função getFinanciamentos
+                    
                 }
-               
+                lbStatus.Text = "Usuário ou senha incorretos.";
+                tbLoginUsuario.Clear();
+                tbSenha.Clear();
+                tbLoginUsuario.Focus();
+                return;
             }
-            catch (Exception)
-            {
+            catch (Exception ex)            {
 
-                throw;
+                MessageBox.Show(ex.Message);
             }
 
         }
