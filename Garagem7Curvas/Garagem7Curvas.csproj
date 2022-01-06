@@ -124,6 +124,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmNovoFinanciamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNovoFinanciamento.Designer.cs">
+      <DependentUpon>FrmNovoFinanciamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Financiamento.cs" />
     <Compile Include="FirestoreAttribute.cs" />
     <Compile Include="FrmJanelaPrincipal.cs">
@@ -138,9 +144,13 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Parcela.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
+    <EmbeddedResource Include="FrmNovoFinanciamento.resx">
+      <DependentUpon>FrmNovoFinanciamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmJanelaPrincipal.resx">
       <DependentUpon>FrmJanelaPrincipal.cs</DependentUpon>
     </EmbeddedResource>
