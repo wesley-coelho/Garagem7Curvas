@@ -11,8 +11,6 @@ namespace Garagem7Curvas
     public class Financiamento
     {
         [FirestoreProperty]
-        public string FinanciamentoId { get; set; }
-        [FirestoreProperty]
         public string ClienteNome { get; set; }
         [FirestoreProperty]
         public string Cpf { get; set; }

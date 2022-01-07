@@ -46,7 +46,7 @@ namespace Garagem7Curvas
                     Financiamento financiamento = doc.ConvertTo<Financiamento>();
                     string[] linha =
                     {
-                        financiamento.FinanciamentoId,
+                        doc.Id,
                         financiamento.ClienteNome,
                         financiamento.Cpf,
                         financiamento.Cep,
@@ -68,15 +68,16 @@ namespace Garagem7Curvas
                         financiamento.Placa,
                         financiamento.Parcelas.Length.ToString(),
                     };
-                    dtgListaFinanciamento.Rows.Add(linha);
+                     dtgListaFinanciamento.Rows.Add(linha);
                 }
             }
-
+            dtgListaFinanciamento.Sort(dtgListaFinanciamento.Columns[1], ListSortDirection.Ascending); 
 
         }
 
         private async void dtgListaFinanciamento_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+
             try
             {
                 string key = dtgListaFinanciamento.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -96,7 +97,9 @@ namespace Garagem7Curvas
 
                     };
                     dtgParcelas.Rows.Add(linha);
-                }              
+                }
+                //ativando o botao de excluir
+                btnDelete.Enabled = true;
             }
             catch (Exception)
             {
@@ -115,5 +118,33 @@ namespace Garagem7Curvas
             
 
         }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            if(dtgListaFinanciamento.SelectedRows.Count != 0)
+            {
+                btnDelete.Enabled = true;
+                
+                try
+                {
+                    string key = dtgListaFinanciamento.SelectedRows[0].Cells[0].Value.ToString();
+                    await db.Collection("financiamentos").Document(key).DeleteAsync();
+                    getFinanciamentos();
+
+                }
+                catch (Exception)
+                {
+
+                    
+                }
+                
+            }
+            else
+            {
+                btnDelete.Enabled = false;
+            }
+        }
+
+        
     }
 }

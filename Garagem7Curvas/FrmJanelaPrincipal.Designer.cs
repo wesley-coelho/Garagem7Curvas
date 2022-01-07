@@ -38,7 +38,7 @@
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
@@ -157,14 +157,14 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.toolStripButton2,
+            this.btnDelete,
             this.toolStripButton3,
             this.toolStripButton4,
             this.toolStripButton5});
-            this.toolStrip1.Location = new System.Drawing.Point(4, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(4, 27);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(197, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(158, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -178,14 +178,16 @@
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripButton2
+            // btnDelete
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.btnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(29, 24);
+            this.btnDelete.Text = "toolStripButton2";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // toolStripButton3
             // 
@@ -286,8 +288,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.dtgParcelas);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(20);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(20);
-            this.splitContainer1.Size = new System.Drawing.Size(775, 396);
-            this.splitContainer1.SplitterDistance = 406;
+            this.splitContainer1.Size = new System.Drawing.Size(800, 369);
+            this.splitContainer1.SplitterDistance = 419;
             this.splitContainer1.TabIndex = 2;
             // 
             // dtgListaFinanciamento
@@ -320,7 +322,7 @@
             this.dtgListaFinanciamento.Name = "dtgListaFinanciamento";
             this.dtgListaFinanciamento.RowHeadersWidth = 51;
             this.dtgListaFinanciamento.RowTemplate.Height = 24;
-            this.dtgListaFinanciamento.Size = new System.Drawing.Size(362, 352);
+            this.dtgListaFinanciamento.Size = new System.Drawing.Size(375, 325);
             this.dtgListaFinanciamento.TabIndex = 0;
             this.dtgListaFinanciamento.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgListaFinanciamento_RowHeaderMouseClick);
             // 
@@ -485,7 +487,7 @@
             this.dtgParcelas.Name = "dtgParcelas";
             this.dtgParcelas.RowHeadersWidth = 51;
             this.dtgParcelas.RowTemplate.Height = 24;
-            this.dtgParcelas.Size = new System.Drawing.Size(321, 352);
+            this.dtgParcelas.Size = new System.Drawing.Size(333, 325);
             this.dtgParcelas.TabIndex = 0;
             // 
             // ColParcela
@@ -530,7 +532,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(775, 396);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 369);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -551,7 +553,7 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox1,
             this.toolStripButton6});
-            this.toolStrip2.Location = new System.Drawing.Point(238, 0);
+            this.toolStrip2.Location = new System.Drawing.Point(4, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip2.Size = new System.Drawing.Size(244, 27);
@@ -618,7 +620,7 @@
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
@@ -631,7 +633,6 @@
         private System.Windows.Forms.ToolStripPanel LeftToolStripPanel;
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridView dtgListaFinanciamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Col;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCpf;
@@ -663,6 +664,7 @@
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
+        public System.Windows.Forms.DataGridView dtgListaFinanciamento;
     }
 }
 
