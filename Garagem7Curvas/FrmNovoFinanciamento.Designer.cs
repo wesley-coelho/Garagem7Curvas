@@ -134,6 +134,7 @@
             this.tbCelular.Name = "tbCelular";
             this.tbCelular.Size = new System.Drawing.Size(109, 22);
             this.tbCelular.TabIndex = 19;
+            this.tbCelular.TextChanged += new System.EventHandler(this.tbCelular_TextChanged);
             // 
             // label10
             // 
@@ -151,6 +152,7 @@
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(117, 22);
             this.tbTelefone.TabIndex = 17;
+            this.tbTelefone.TextChanged += new System.EventHandler(this.tbTelefone_TextChanged);
             // 
             // label9
             // 
@@ -248,6 +250,7 @@
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.Size = new System.Drawing.Size(117, 22);
             this.tbNumero.TabIndex = 9;
+            this.tbNumero.TextChanged += new System.EventHandler(this.tbNumero_TextChanged);
             // 
             // label5
             // 
@@ -302,6 +305,7 @@
             this.tbCpf.Size = new System.Drawing.Size(191, 22);
             this.tbCpf.TabIndex = 3;
             this.tbCpf.TextChanged += new System.EventHandler(this.tbCpf_TextChanged);
+            this.tbCpf.Leave += new System.EventHandler(this.tbCpf_Leave);
             // 
             // label2
             // 
@@ -375,6 +379,7 @@
             this.cbPrazo.Name = "cbPrazo";
             this.cbPrazo.Size = new System.Drawing.Size(88, 24);
             this.cbPrazo.TabIndex = 39;
+            this.cbPrazo.TextChanged += new System.EventHandler(this.cbPrazo_TextChanged);
             // 
             // label23
             // 
@@ -459,6 +464,7 @@
             this.tbAno.Name = "tbAno";
             this.tbAno.Size = new System.Drawing.Size(88, 22);
             this.tbAno.TabIndex = 33;
+            this.tbAno.TextChanged += new System.EventHandler(this.tbAno_TextChanged);
             // 
             // label18
             // 

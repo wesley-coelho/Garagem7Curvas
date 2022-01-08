@@ -27,6 +27,16 @@ namespace Garagem7Curvas
 
         private async void btnAddFinanciamento_Click(object sender, EventArgs e)
         {
+            foreach (Control item in grpDadosCliente.Controls)
+            {
+                if(item.Text == "")
+                {
+                    MessageBox.Show("Preencha todos os campos");
+                    return;
+                }
+
+            }
+            
             CollectionReference colRef = janelaPrincipal.db.Collection("financiamentos");
 
             Parcela[] parcelas = new Parcela[int.Parse(cbPrazo.Text)];
@@ -100,6 +110,22 @@ namespace Garagem7Curvas
                 }
 
                 
+            }
+        }
+
+        private void verificaNumero(ref ComboBox tb)
+        {
+            string txt = tb.Text.ToUpper();
+            if (!string.IsNullOrEmpty(txt))
+            {
+                if (!char.IsDigit(char.Parse(txt.Substring(txt.Length - 1))))
+                {
+                    MessageBox.Show("Digite apenas números.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tb.Text = txt.Remove(txt.Length - 1);
+                    tb.SelectionStart = txt.Length;
+                }
+
+
             }
         }
 
@@ -188,6 +214,92 @@ namespace Garagem7Curvas
         private void tbCep_TextChanged(object sender, EventArgs e)
         {
             verificaNumero(ref tbCep);
+        }
+
+        private bool validaCpf(string cpf)
+        { 
+            
+            char[] vetCpf = cpf.ToArray<char>();
+            int[]  cpfNumber = new int[11];
+            int cpfSoma = 0;
+            bool flagTodosIguais = true;
+            for (int i = 0; i < vetCpf.Length; i++)
+            {
+                cpfNumber[i] = int.Parse(vetCpf[i].ToString());
+
+            }
+          
+            for (int i = 0; i < cpfNumber.Length-1; i++)
+            {
+                if(cpfNumber[i] != cpfNumber[i + 1])
+                {
+                    flagTodosIguais = false;
+                    break;
+                }
+            }
+
+            if (flagTodosIguais == true)
+                return false;
+
+            for (int i = 0, j = 10; i < 9; i++, j--)
+            {
+                cpfSoma += j * cpfNumber[i];
+            }
+
+            if((cpfSoma*10)%11  == cpfNumber[9] || (cpfSoma * 10) % 11 == 10 && cpfNumber[9] == 0)
+            {
+                cpfSoma = 0;
+                for (int i = 0, j = 11; i < 10; i++, j--)
+                {
+                    cpfSoma += j * cpfNumber[i];
+                }
+                if ((cpfSoma * 10) % 11 == cpfNumber[10] || (cpfSoma * 10) % 11 == 10 && cpfNumber[10] == 0)
+                    return true;
+                else 
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        private void tbCpf_Leave(object sender, EventArgs e)
+        {
+            if (!validaCpf(tbCpf.Text))
+            {
+                MessageBox.Show("CPF inválido", "´CPF Inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbCpf.Focus();
+                tbCpf.SelectAll();
+            }              
+
+
+        }
+
+        private void tbNumero_TextChanged(object sender, EventArgs e)
+        {
+            verificaNumero(ref tbNumero);
+        }
+
+        private void tbTelefone_TextChanged(object sender, EventArgs e)
+        {
+            verificaNumero(ref tbTelefone);
+        }
+
+        private void tbCelular_TextChanged(object sender, EventArgs e)
+        {
+            verificaNumero(ref tbCelular);
+        }
+
+        private void tbAno_TextChanged(object sender, EventArgs e)
+        {
+            verificaNumero(ref tbAno);
+        }
+
+        private void cbPrazo_TextChanged(object sender, EventArgs e)
+        {
+            verificaNumero(ref cbPrazo);
         }
     }
 }
