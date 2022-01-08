@@ -319,5 +319,11 @@ namespace Garagem7Curvas
               
             }
         }
+
+        private void tbPesquisar_TextChanged(object sender, EventArgs e)
+        {
+            tbPesquisar.Text = tbPesquisar.Text.ToUpper();
+            tbPesquisar.SelectionStart = tbPesquisar.Text.Length;
+        }
     }
 }

@@ -46,6 +46,10 @@ namespace Garagem7Curvas
                 Parcela parcela = new Parcela();
                 parcela.Id = (i + 1).ToString();
                 parcela.Situacao = "NORMAL";
+                //if (tbValor.Text.Contains(","))
+                //{
+                //    tbValor.Text = tbValor.Text.Replace(",", ".");
+                //}
                 parcela.ValorNominal = float.Parse(tbValor.Text);
                 parcela.ValorPago = 0f;
                 parcela.Vencimento = dtPrimeiraParcela.Value.Date.AddMonths(i).ToString().Remove(10);
@@ -267,6 +271,8 @@ namespace Garagem7Curvas
 
         private void tbCpf_Leave(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(tbCpf.Text))
+                return;
             if (!validaCpf(tbCpf.Text))
             {
                 MessageBox.Show("CPF inválido", "´CPF Inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -300,6 +306,56 @@ namespace Garagem7Curvas
         private void cbPrazo_TextChanged(object sender, EventArgs e)
         {
             verificaNumero(ref cbPrazo);
+        }
+
+        private void tbEndereco_TextChanged(object sender, EventArgs e)
+        {
+            tbEndereco.Text = tbEndereco.Text.ToUpper();
+            tbEndereco.SelectionStart = tbEndereco.Text.Length;
+        }
+
+        private void tbBairro_TextChanged(object sender, EventArgs e)
+        {
+            tbBairro.Text = tbBairro.Text.ToUpper();
+            tbBairro.SelectionStart = tbBairro.Text.Length;
+        }
+
+        private void tbCidade_TextChanged(object sender, EventArgs e)
+        {
+            tbCidade.Text = tbCidade.Text.ToUpper();
+            tbCidade.SelectionStart = tbCidade.Text.Length;
+        }
+
+        private void tbChassi_TextChanged(object sender, EventArgs e)
+        {
+            tbChassi.Text = tbChassi.Text.ToUpper();
+            tbChassi.SelectionStart = tbChassi.Text.Length;
+        }
+
+        private void tbModelo_TextChanged(object sender, EventArgs e)
+        {
+            tbModelo.Text = tbModelo.Text.ToUpper();
+            tbModelo.SelectionStart = tbModelo.Text.Length;
+        }
+
+        private void tbCidadeVeiculo_TextChanged(object sender, EventArgs e)
+        {
+            tbCidadeVeiculo.Text = tbCidadeVeiculo.Text.ToUpper();
+            tbCidadeVeiculo.SelectionStart = tbCidadeVeiculo.Text.Length;
+        }
+
+        private void tbPlaca_TextChanged(object sender, EventArgs e)
+        {
+            tbPlaca.Text = tbPlaca.Text.ToUpper();
+            tbPlaca.SelectionStart = tbPlaca.Text.Length;
+        }
+
+        private void tbValor_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tbValor.Text))
+            {
+                
+            }
         }
     }
 }

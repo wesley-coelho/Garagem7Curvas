@@ -216,6 +216,7 @@
             this.tbCidade.Name = "tbCidade";
             this.tbCidade.Size = new System.Drawing.Size(520, 22);
             this.tbCidade.TabIndex = 13;
+            this.tbCidade.TextChanged += new System.EventHandler(this.tbCidade_TextChanged);
             // 
             // label7
             // 
@@ -233,6 +234,7 @@
             this.tbBairro.Name = "tbBairro";
             this.tbBairro.Size = new System.Drawing.Size(543, 22);
             this.tbBairro.TabIndex = 11;
+            this.tbBairro.TextChanged += new System.EventHandler(this.tbBairro_TextChanged);
             // 
             // label6
             // 
@@ -268,6 +270,7 @@
             this.tbEndereco.Name = "tbEndereco";
             this.tbEndereco.Size = new System.Drawing.Size(543, 22);
             this.tbEndereco.TabIndex = 7;
+            this.tbEndereco.TextChanged += new System.EventHandler(this.tbEndereco_TextChanged);
             // 
             // label4
             // 
@@ -397,6 +400,7 @@
             this.tbValor.Name = "tbValor";
             this.tbValor.Size = new System.Drawing.Size(176, 22);
             this.tbValor.TabIndex = 45;
+            this.tbValor.TextChanged += new System.EventHandler(this.tbValor_TextChanged);
             // 
             // label22
             // 
@@ -430,6 +434,7 @@
             this.tbPlaca.Name = "tbPlaca";
             this.tbPlaca.Size = new System.Drawing.Size(100, 22);
             this.tbPlaca.TabIndex = 37;
+            this.tbPlaca.TextChanged += new System.EventHandler(this.tbPlaca_TextChanged);
             // 
             // label19
             // 
@@ -447,6 +452,7 @@
             this.tbCidadeVeiculo.Name = "tbCidadeVeiculo";
             this.tbCidadeVeiculo.Size = new System.Drawing.Size(399, 22);
             this.tbCidadeVeiculo.TabIndex = 35;
+            this.tbCidadeVeiculo.TextChanged += new System.EventHandler(this.tbCidadeVeiculo_TextChanged);
             // 
             // label17
             // 
@@ -482,6 +488,7 @@
             this.tbModelo.Name = "tbModelo";
             this.tbModelo.Size = new System.Drawing.Size(383, 22);
             this.tbModelo.TabIndex = 31;
+            this.tbModelo.TextChanged += new System.EventHandler(this.tbModelo_TextChanged);
             // 
             // label16
             // 
@@ -547,6 +554,7 @@
             this.tbChassi.Name = "tbChassi";
             this.tbChassi.Size = new System.Drawing.Size(186, 22);
             this.tbChassi.TabIndex = 25;
+            this.tbChassi.TextChanged += new System.EventHandler(this.tbChassi_TextChanged);
             // 
             // label13
             // 
