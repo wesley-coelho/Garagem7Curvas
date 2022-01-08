@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Correios.CorreiosServiceReference;
+
 
 namespace Garagem7Curvas
 {
@@ -71,10 +73,9 @@ namespace Garagem7Curvas
                 await colRef.AddAsync(registro);
                 janelaPrincipal.getFinanciamentos();
             }
-            catch (Exception)
+            catch (System.Exception )
             {
-
-             
+                             
             }
             
 
@@ -85,6 +86,22 @@ namespace Garagem7Curvas
             verificaTexto(ref tbNome);
         }
 
+
+        private void verificaNumero(ref TextBox tb)
+        {
+            string txt = tb.Text.ToUpper();
+            if (!string.IsNullOrEmpty(txt))
+            {
+                if (!char.IsDigit(char.Parse(txt.Substring(txt.Length - 1))))
+                {
+                    MessageBox.Show("Digite apenas números.", "Erro", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    tb.Text = txt.Remove(txt.Length - 1);
+                    tb.SelectionStart = txt.Length;
+                }
+
+                
+            }
+        }
 
         private void verificaTexto(ref TextBox txt)
         {
@@ -136,6 +153,41 @@ namespace Garagem7Curvas
         private void tbMarca_TextChanged(object sender, EventArgs e)
         {
             verificaTexto(ref tbMarca);
+        }
+
+        private void tbCpf_TextChanged(object sender, EventArgs e)
+        {
+            verificaNumero(ref tbCpf);
+        }
+
+        private void tbCep_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tbCep.Text))
+            {
+                try
+                {
+                    var cliente = new Correios.CorreiosApi();
+                    var resposta = cliente.consultaCEP(tbCep.Text);
+
+                    tbEndereco.Text = resposta.end.ToUpper();
+                    tbBairro.Text = resposta.bairro.ToUpper();
+                    tbCidade.Text = resposta.cidade.ToUpper();
+                    cbEstado.Text = resposta.uf.ToUpper();
+                    tbNumero.Focus();
+                }
+                catch (System.Exception)
+                {
+
+                 
+                }
+                
+
+            }
+        }
+
+        private void tbCep_TextChanged(object sender, EventArgs e)
+        {
+            verificaNumero(ref tbCep);
         }
     }
 }

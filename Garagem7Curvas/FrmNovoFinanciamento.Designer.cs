@@ -113,6 +113,7 @@
             // tbEmail
             // 
             this.tbEmail.Location = new System.Drawing.Point(477, 170);
+            this.tbEmail.MaxLength = 100;
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(371, 22);
             this.tbEmail.TabIndex = 21;
@@ -129,6 +130,7 @@
             // tbCelular
             // 
             this.tbCelular.Location = new System.Drawing.Point(284, 170);
+            this.tbCelular.MaxLength = 12;
             this.tbCelular.Name = "tbCelular";
             this.tbCelular.Size = new System.Drawing.Size(109, 22);
             this.tbCelular.TabIndex = 19;
@@ -145,6 +147,7 @@
             // tbTelefone
             // 
             this.tbTelefone.Location = new System.Drawing.Point(72, 170);
+            this.tbTelefone.MaxLength = 12;
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(117, 22);
             this.tbTelefone.TabIndex = 17;
@@ -224,6 +227,7 @@
             // tbBairro
             // 
             this.tbBairro.Location = new System.Drawing.Point(305, 102);
+            this.tbBairro.MaxLength = 200;
             this.tbBairro.Name = "tbBairro";
             this.tbBairro.Size = new System.Drawing.Size(543, 22);
             this.tbBairro.TabIndex = 11;
@@ -240,6 +244,7 @@
             // tbNumero
             // 
             this.tbNumero.Location = new System.Drawing.Point(72, 102);
+            this.tbNumero.MaxLength = 10;
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.Size = new System.Drawing.Size(117, 22);
             this.tbNumero.TabIndex = 9;
@@ -256,6 +261,7 @@
             // tbEndereco
             // 
             this.tbEndereco.Location = new System.Drawing.Point(305, 67);
+            this.tbEndereco.MaxLength = 200;
             this.tbEndereco.Name = "tbEndereco";
             this.tbEndereco.Size = new System.Drawing.Size(543, 22);
             this.tbEndereco.TabIndex = 7;
@@ -272,9 +278,12 @@
             // tbCep
             // 
             this.tbCep.Location = new System.Drawing.Point(72, 67);
+            this.tbCep.MaxLength = 8;
             this.tbCep.Name = "tbCep";
             this.tbCep.Size = new System.Drawing.Size(117, 22);
             this.tbCep.TabIndex = 5;
+            this.tbCep.TextChanged += new System.EventHandler(this.tbCep_TextChanged);
+            this.tbCep.Leave += new System.EventHandler(this.tbCep_Leave);
             // 
             // label3
             // 
@@ -288,9 +297,11 @@
             // tbCpf
             // 
             this.tbCpf.Location = new System.Drawing.Point(657, 33);
+            this.tbCpf.MaxLength = 11;
             this.tbCpf.Name = "tbCpf";
             this.tbCpf.Size = new System.Drawing.Size(191, 22);
             this.tbCpf.TabIndex = 3;
+            this.tbCpf.TextChanged += new System.EventHandler(this.tbCpf_TextChanged);
             // 
             // label2
             // 
@@ -304,6 +315,7 @@
             // tbNome
             // 
             this.tbNome.Location = new System.Drawing.Point(72, 33);
+            this.tbNome.MaxLength = 50;
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(520, 22);
             this.tbNome.TabIndex = 1;
@@ -376,6 +388,7 @@
             // tbValor
             // 
             this.tbValor.Location = new System.Drawing.Point(672, 139);
+            this.tbValor.MaxLength = 20;
             this.tbValor.Name = "tbValor";
             this.tbValor.Size = new System.Drawing.Size(176, 22);
             this.tbValor.TabIndex = 45;
@@ -425,6 +438,7 @@
             // tbCidadeVeiculo
             // 
             this.tbCidadeVeiculo.Location = new System.Drawing.Point(266, 104);
+            this.tbCidadeVeiculo.MaxLength = 200;
             this.tbCidadeVeiculo.Name = "tbCidadeVeiculo";
             this.tbCidadeVeiculo.Size = new System.Drawing.Size(399, 22);
             this.tbCidadeVeiculo.TabIndex = 35;
@@ -441,6 +455,7 @@
             // tbAno
             // 
             this.tbAno.Location = new System.Drawing.Point(72, 104);
+            this.tbAno.MaxLength = 4;
             this.tbAno.Name = "tbAno";
             this.tbAno.Size = new System.Drawing.Size(88, 22);
             this.tbAno.TabIndex = 33;
@@ -457,6 +472,7 @@
             // tbModelo
             // 
             this.tbModelo.Location = new System.Drawing.Point(465, 71);
+            this.tbModelo.MaxLength = 100;
             this.tbModelo.Name = "tbModelo";
             this.tbModelo.Size = new System.Drawing.Size(383, 22);
             this.tbModelo.TabIndex = 31;
@@ -473,6 +489,7 @@
             // tbMarca
             // 
             this.tbMarca.Location = new System.Drawing.Point(72, 71);
+            this.tbMarca.MaxLength = 100;
             this.tbMarca.Name = "tbMarca";
             this.tbMarca.Size = new System.Drawing.Size(305, 22);
             this.tbMarca.TabIndex = 29;
@@ -520,6 +537,7 @@
             // tbChassi
             // 
             this.tbChassi.Location = new System.Drawing.Point(353, 35);
+            this.tbChassi.MaxLength = 30;
             this.tbChassi.Name = "tbChassi";
             this.tbChassi.Size = new System.Drawing.Size(186, 22);
             this.tbChassi.TabIndex = 25;
