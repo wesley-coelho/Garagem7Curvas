@@ -569,7 +569,7 @@
             this.toolStrip2.Location = new System.Drawing.Point(162, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(283, 27);
+            this.toolStrip2.Size = new System.Drawing.Size(244, 27);
             this.toolStrip2.TabIndex = 2;
             // 
             // tbPesquisar
