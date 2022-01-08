@@ -145,6 +145,166 @@ namespace Garagem7Curvas
             }
         }
 
-        
+        private void fecharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                getFinanciamentos();
+            }
+            catch (Exception)
+            {
+
+                
+            }
+        }
+
+        private async void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CollectionReference colRef = db.Collection("financiamentos");
+                QuerySnapshot docSnap = await colRef.GetSnapshotAsync();
+                dtgListaFinanciamento.Rows.Clear();
+              
+                foreach (var doc in docSnap)
+                {
+                    if (doc.Exists)
+                    {
+                        Financiamento financiamento = doc.ConvertTo<Financiamento>();
+                        if (financiamento.ClienteNome.Contains(tbPesquisar.Text))
+                        {
+                            string[] linha =
+                            {
+                                doc.Id,
+                                financiamento.ClienteNome,
+                                financiamento.Cpf,
+                                financiamento.Cep,
+                                financiamento.Endereco,
+                                financiamento.Numero,
+                                financiamento.Bairro,
+                                financiamento.Cidade,
+                                financiamento.Estado,
+                                financiamento.Telefone,
+                                financiamento.Celular,
+                                financiamento.Email,
+                                financiamento.Veiculo,
+                                financiamento.AnoVeiculo,
+                                financiamento.Chassi,
+                                financiamento.CidadeVeiculo,
+                                financiamento.Cor,
+                                financiamento.Marca,
+                                financiamento.Modelo,
+                                financiamento.Placa,
+                                financiamento.Parcelas.Length.ToString(),
+                            };
+                                   dtgListaFinanciamento.Rows.Add(linha);
+                        }
+                    }
+                }
+                dtgListaFinanciamento.Sort(dtgListaFinanciamento.Columns[1], ListSortDirection.Ascending);
+            }
+            catch (Exception)
+            {
+
+               
+            }
+        }
+
+        private async void dtgListaFinanciamento_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string key = dtgListaFinanciamento.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string updateValue = dtgListaFinanciamento.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                string[] prop =
+                {
+                   "Id",
+                   "ClienteNome",
+                   "Cpf",
+                   "Cep",
+                   "Endereco",
+                   "Numero",
+                   "Bairro",
+                   "Cidade",
+                   "Estado",
+                   "Telefone",
+                   "Celular",
+                   "Email",
+                   "Veiculo",
+                   "AnoVeiculo",
+                   "Chassi",
+                   "CidadeVeiculo",
+                   "Cor",
+                   "Marca",
+                   "Modelo",
+                   "Placa",
+                   "Parcelas"
+                };
+
+                if (prop[e.ColumnIndex] == "Parcelas")
+                    await db.Collection("financiamentos").Document(key).UpdateAsync(prop[e.ColumnIndex], int.Parse(updateValue));
+               else
+                    await db.Collection("financiamentos").Document(key).UpdateAsync(prop[e.ColumnIndex], updateValue);
+            }
+            catch (Exception)
+            {
+
+                
+            }
+        }
+
+        private async void dtgParcelas_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string key = dtgListaFinanciamento.SelectedRows[0].Cells[0].Value.ToString();
+                string updateValue = dtgParcelas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+
+                CollectionReference colRef = db.Collection("financiamentos");
+                QuerySnapshot docSnap = await colRef.GetSnapshotAsync();
+
+                foreach (var doc in docSnap)
+                {
+                    if (doc.Exists)
+                    {
+                        if(doc.Id == key)
+                        {
+                            Financiamento financiamento = doc.ConvertTo<Financiamento>();
+                            switch (e.ColumnIndex)
+                            {
+                                case 1:                                  
+                                        financiamento.Parcelas[e.RowIndex].Vencimento = updateValue;                               
+                                    break;
+                                case 2:
+                                    financiamento.Parcelas[e.RowIndex].ValorNominal = float.Parse(updateValue);
+                                    break;
+                                case 3:
+                                    financiamento.Parcelas[e.RowIndex].ValorPago = float.Parse(updateValue);
+                                    break;
+                                case 4:
+                                    financiamento.Parcelas[e.RowIndex].Situacao = updateValue;
+                                    break;
+                                
+                                default:
+                                    break;
+                            }
+                            await colRef.Document(key).UpdateAsync("Parcelas", financiamento.Parcelas);
+
+
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+              
+            }
+        }
     }
 }
