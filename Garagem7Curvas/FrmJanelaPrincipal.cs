@@ -135,19 +135,22 @@ namespace Garagem7Curvas
             {
                 btnDelete.Enabled = true;
                 
-                try
+               if(MessageBox.Show("Confirma exclusão DEFINITIVA da base de dados?","Exclusão", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    string key = dtgListaFinanciamento.SelectedRows[0].Cells[0].Value.ToString();
-                    await db.Collection("financiamentos").Document(key).DeleteAsync();
-                    getFinanciamentos();
+                    try
+                    {
+                        string key = dtgListaFinanciamento.SelectedRows[0].Cells[0].Value.ToString();
+                        await db.Collection("financiamentos").Document(key).DeleteAsync();
+                        getFinanciamentos();
 
-                }
-                catch (Exception)
-                {
+                    }
+                    catch (Exception)
+                    {
 
-                    
+
+                    }
                 }
-                
+               
             }
             else
             {

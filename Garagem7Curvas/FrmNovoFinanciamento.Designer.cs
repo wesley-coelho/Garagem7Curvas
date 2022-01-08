@@ -52,6 +52,8 @@
             this.tbNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grpDadosVeiculo = new System.Windows.Forms.GroupBox();
+            this.cbPrazo = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.tbValor = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.dtPrimeiraParcela = new System.Windows.Forms.DateTimePicker();
@@ -73,8 +75,6 @@
             this.cbVeiculo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnAddFinanciamento = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
-            this.cbPrazo = new System.Windows.Forms.ComboBox();
             this.grpDadosCliente.SuspendLayout();
             this.grpDadosVeiculo.SuspendLayout();
             this.SuspendLayout();
@@ -306,6 +306,7 @@
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(520, 22);
             this.tbNome.TabIndex = 1;
+            this.tbNome.TextChanged += new System.EventHandler(this.tbNome_TextChanged);
             // 
             // label1
             // 
@@ -346,6 +347,30 @@
             this.grpDadosVeiculo.TabIndex = 1;
             this.grpDadosVeiculo.TabStop = false;
             this.grpDadosVeiculo.Text = "Dados Veículo";
+            // 
+            // cbPrazo
+            // 
+            this.cbPrazo.FormattingEnabled = true;
+            this.cbPrazo.Items.AddRange(new object[] {
+            "12",
+            "24",
+            "36",
+            "48",
+            "60",
+            "72"});
+            this.cbPrazo.Location = new System.Drawing.Point(72, 138);
+            this.cbPrazo.Name = "cbPrazo";
+            this.cbPrazo.Size = new System.Drawing.Size(88, 24);
+            this.cbPrazo.TabIndex = 39;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(7, 144);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(49, 17);
+            this.label23.TabIndex = 38;
+            this.label23.Text = "Prazo:";
             // 
             // tbValor
             // 
@@ -535,30 +560,6 @@
             this.btnAddFinanciamento.Text = "Registrar";
             this.btnAddFinanciamento.UseVisualStyleBackColor = true;
             this.btnAddFinanciamento.Click += new System.EventHandler(this.btnAddFinanciamento_Click);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(7, 144);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(49, 17);
-            this.label23.TabIndex = 38;
-            this.label23.Text = "Prazo:";
-            // 
-            // cbPrazo
-            // 
-            this.cbPrazo.FormattingEnabled = true;
-            this.cbPrazo.Items.AddRange(new object[] {
-            "12",
-            "24",
-            "36",
-            "48",
-            "60",
-            "72"});
-            this.cbPrazo.Location = new System.Drawing.Point(72, 138);
-            this.cbPrazo.Name = "cbPrazo";
-            this.cbPrazo.Size = new System.Drawing.Size(88, 24);
-            this.cbPrazo.TabIndex = 39;
             // 
             // FrmAddFinanciamento
             // 

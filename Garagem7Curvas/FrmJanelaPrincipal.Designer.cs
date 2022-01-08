@@ -74,15 +74,15 @@
             this.ColPlaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColQtdParcelas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgParcelas = new System.Windows.Forms.DataGridView();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.tbPesquisar = new System.Windows.Forms.ToolStripTextBox();
+            this.btnPesquisar = new System.Windows.Forms.ToolStripButton();
             this.ColParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColValorPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.tbPesquisar = new System.Windows.Forms.ToolStripTextBox();
-            this.btnPesquisar = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -170,7 +170,7 @@
             this.toolStripButton3,
             this.toolStripButton4,
             this.toolStripButton5});
-            this.toolStrip1.Location = new System.Drawing.Point(4, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(4, 27);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(158, 27);
@@ -298,7 +298,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.dtgParcelas);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(20);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(20);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 396);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 369);
             this.splitContainer1.SplitterDistance = 419;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -332,7 +332,7 @@
             this.dtgListaFinanciamento.Name = "dtgListaFinanciamento";
             this.dtgListaFinanciamento.RowHeadersWidth = 51;
             this.dtgListaFinanciamento.RowTemplate.Height = 24;
-            this.dtgListaFinanciamento.Size = new System.Drawing.Size(375, 352);
+            this.dtgListaFinanciamento.Size = new System.Drawing.Size(375, 325);
             this.dtgListaFinanciamento.TabIndex = 0;
             this.dtgListaFinanciamento.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaFinanciamento_CellEndEdit);
             this.dtgListaFinanciamento.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgListaFinanciamento_RowHeaderMouseClick);
@@ -498,15 +498,66 @@
             this.dtgParcelas.Name = "dtgParcelas";
             this.dtgParcelas.RowHeadersWidth = 51;
             this.dtgParcelas.RowTemplate.Height = 24;
-            this.dtgParcelas.Size = new System.Drawing.Size(333, 352);
+            this.dtgParcelas.Size = new System.Drawing.Size(333, 325);
             this.dtgParcelas.TabIndex = 0;
             this.dtgParcelas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgParcelas_CellEndEdit);
+            // 
+            // toolStripContainer1
+            // 
+            this.toolStripContainer1.BottomToolStripPanelVisible = false;
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 369);
+            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
+            this.toolStripContainer1.Name = "toolStripContainer1";
+            this.toolStripContainer1.RightToolStripPanelVisible = false;
+            this.toolStripContainer1.Size = new System.Drawing.Size(800, 423);
+            this.toolStripContainer1.TabIndex = 3;
+            this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // toolStripContainer1.TopToolStripPanel
+            // 
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tbPesquisar,
+            this.btnPesquisar});
+            this.toolStrip2.Location = new System.Drawing.Point(4, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip2.Size = new System.Drawing.Size(244, 27);
+            this.toolStrip2.TabIndex = 2;
+            // 
+            // tbPesquisar
+            // 
+            this.tbPesquisar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbPesquisar.Name = "tbPesquisar";
+            this.tbPesquisar.Size = new System.Drawing.Size(200, 27);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
+            this.btnPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(29, 24);
+            this.btnPesquisar.Text = "toolStripButton6";
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // ColParcela
             // 
             this.ColParcela.HeaderText = "Parcela";
             this.ColParcela.MinimumWidth = 6;
             this.ColParcela.Name = "ColParcela";
+            this.ColParcela.ReadOnly = true;
             this.ColParcela.Width = 125;
             // 
             // ColVencimento
@@ -536,56 +587,6 @@
             this.ColStatus.MinimumWidth = 6;
             this.ColStatus.Name = "ColStatus";
             this.ColStatus.Width = 125;
-            // 
-            // toolStripContainer1
-            // 
-            this.toolStripContainer1.BottomToolStripPanelVisible = false;
-            // 
-            // toolStripContainer1.ContentPanel
-            // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 396);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 423);
-            this.toolStripContainer1.TabIndex = 3;
-            this.toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // toolStripContainer1.TopToolStripPanel
-            // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tbPesquisar,
-            this.btnPesquisar});
-            this.toolStrip2.Location = new System.Drawing.Point(170, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(244, 27);
-            this.toolStrip2.TabIndex = 2;
-            // 
-            // tbPesquisar
-            // 
-            this.tbPesquisar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tbPesquisar.Name = "tbPesquisar";
-            this.tbPesquisar.Size = new System.Drawing.Size(200, 27);
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(29, 24);
-            this.btnPesquisar.Text = "toolStripButton6";
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // FrmJanelaPrincipal
             // 
@@ -668,17 +669,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColPlaca;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColQtdParcelas;
         private System.Windows.Forms.DataGridView dtgParcelas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColParcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColVencimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColValorPago;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColStatus;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripTextBox tbPesquisar;
         private System.Windows.Forms.ToolStripButton btnPesquisar;
         public System.Windows.Forms.DataGridView dtgListaFinanciamento;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColParcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColVencimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColValorPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColStatus;
     }
 }
 

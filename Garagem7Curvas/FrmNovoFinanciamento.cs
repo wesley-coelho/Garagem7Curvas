@@ -80,9 +80,24 @@ namespace Garagem7Curvas
 
         }
 
-        private void dtPrimeiraParcela_ValueChanged(object sender, EventArgs e)
+        private void tbNome_TextChanged(object sender, EventArgs e)
         {
+            string txtUpper = tbNome.Text.ToUpper();
 
+            if (!string.IsNullOrEmpty(txtUpper))
+            {
+                tbNome.Text = txtUpper;
+                tbNome.SelectionStart = tbNome.Text.Length;
+                if (char.IsDigit(char.Parse(txtUpper.Substring(tbNome.Text.Length - 1))))
+                {
+                    MessageBox.Show("Digite apenas letras", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tbNome.Text = txtUpper.Remove(txtUpper.Length - 1);
+                }
+            }
+                
+               
         }
+
+
     }
 }
