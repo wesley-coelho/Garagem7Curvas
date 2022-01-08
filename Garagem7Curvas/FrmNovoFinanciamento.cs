@@ -82,22 +82,60 @@ namespace Garagem7Curvas
 
         private void tbNome_TextChanged(object sender, EventArgs e)
         {
-            string txtUpper = tbNome.Text.ToUpper();
-
-            if (!string.IsNullOrEmpty(txtUpper))
-            {
-                tbNome.Text = txtUpper;
-                tbNome.SelectionStart = tbNome.Text.Length;
-                if (char.IsDigit(char.Parse(txtUpper.Substring(tbNome.Text.Length - 1))))
-                {
-                    MessageBox.Show("Digite apenas letras", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    tbNome.Text = txtUpper.Remove(txtUpper.Length - 1);
-                }
-            }
-                
-               
+            verificaTexto(ref tbNome);
         }
 
 
+        private void verificaTexto(ref TextBox txt)
+        {
+            string txtUpper = txt.Text.ToUpper();
+
+            if (!string.IsNullOrEmpty(txtUpper))
+            {
+                txt.Text = txtUpper;
+                txt.SelectionStart = txt.Text.Length;
+                if (char.IsDigit(char.Parse(txtUpper.Substring(txt.Text.Length - 1))))
+                {
+                    MessageBox.Show("Digite apenas letras", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt.Text = txtUpper.Remove(txtUpper.Length - 1);
+                }
+            }
+        }
+
+        private void verificaTexto(ref ComboBox txt)
+        {
+            string txtUpper = txt.Text.ToUpper();
+
+            if (!string.IsNullOrEmpty(txtUpper))
+            {
+                txt.Text = txtUpper;
+                txt.SelectionStart = txt.Text.Length;
+                if (char.IsDigit(char.Parse(txtUpper.Substring(txt.Text.Length - 1))))
+                {
+                    MessageBox.Show("Digite apenas letras", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt.Text = txtUpper.Remove(txtUpper.Length - 1);
+                }
+            }
+        }
+
+        private void cbEstado_TextChanged(object sender, EventArgs e)
+        {
+            verificaTexto(ref cbEstado);
+        }
+
+        private void cbVeiculo_TextChanged(object sender, EventArgs e)
+        {
+            verificaTexto(ref cbVeiculo);
+        }
+
+        private void cbCor_TextChanged(object sender, EventArgs e)
+        {
+            verificaTexto(ref cbCor);
+        }
+
+        private void tbMarca_TextChanged(object sender, EventArgs e)
+        {
+            verificaTexto(ref tbMarca);
+        }
     }
 }

@@ -194,6 +194,7 @@
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(176, 24);
             this.cbEstado.TabIndex = 15;
+            this.cbEstado.TextChanged += new System.EventHandler(this.cbEstado_TextChanged);
             // 
             // label8
             // 
@@ -475,6 +476,7 @@
             this.tbMarca.Name = "tbMarca";
             this.tbMarca.Size = new System.Drawing.Size(305, 22);
             this.tbMarca.TabIndex = 29;
+            this.tbMarca.TextChanged += new System.EventHandler(this.tbMarca_TextChanged);
             // 
             // label15
             // 
@@ -504,6 +506,7 @@
             this.cbCor.Name = "cbCor";
             this.cbCor.Size = new System.Drawing.Size(235, 24);
             this.cbCor.TabIndex = 27;
+            this.cbCor.TextChanged += new System.EventHandler(this.cbCor_TextChanged);
             // 
             // label14
             // 
@@ -541,6 +544,7 @@
             this.cbVeiculo.Name = "cbVeiculo";
             this.cbVeiculo.Size = new System.Drawing.Size(178, 24);
             this.cbVeiculo.TabIndex = 23;
+            this.cbVeiculo.TextChanged += new System.EventHandler(this.cbVeiculo_TextChanged);
             // 
             // label12
             // 
