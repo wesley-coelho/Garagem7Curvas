@@ -35,17 +35,19 @@ namespace Garagem7Curvas
 
         public async void getFinanciamentos()
         {
-            CollectionReference colRef = db.Collection("financiamentos");
-            QuerySnapshot qSnap = await colRef.GetSnapshotAsync();
-            dtgListaFinanciamento.Rows.Clear();
-
-            foreach (var doc in qSnap)
+            try
             {
-                if (doc.Exists)
+                CollectionReference colRef = db.Collection("financiamentos");
+                QuerySnapshot qSnap = await colRef.GetSnapshotAsync();
+                dtgListaFinanciamento.Rows.Clear();
+
+                foreach (var doc in qSnap)
                 {
-                    Financiamento financiamento = doc.ConvertTo<Financiamento>();
-                    string[] linha =
+                    if (doc.Exists)
                     {
+                        Financiamento financiamento = doc.ConvertTo<Financiamento>();
+                        string[] linha =
+                        {
                         doc.Id,
                         financiamento.ClienteNome,
                         financiamento.Cpf,
@@ -68,11 +70,19 @@ namespace Garagem7Curvas
                         financiamento.Placa,
                         financiamento.Parcelas.Length.ToString(),
                     };
-                     dtgListaFinanciamento.Rows.Add(linha);
+                        dtgListaFinanciamento.Rows.Add(linha);
+                    }
                 }
-            }
-            dtgListaFinanciamento.Sort(dtgListaFinanciamento.Columns[1], ListSortDirection.Ascending); 
+                dtgListaFinanciamento.Sort(dtgListaFinanciamento.Columns[1], ListSortDirection.Ascending);
 
+            }
+            catch (Exception)
+            {
+
+             
+            }
+            
+            
         }
 
         private async void dtgListaFinanciamento_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
