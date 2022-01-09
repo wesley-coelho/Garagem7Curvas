@@ -83,6 +83,8 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tbPesquisar = new System.Windows.Forms.ToolStripTextBox();
             this.btnPesquisar = new System.Windows.Forms.ToolStripButton();
+            this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.planilhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -117,6 +119,7 @@
             // 
             this.inicioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.conectarAoFirebaseToolStripMenuItem,
+            this.importarToolStripMenuItem,
             this.fecharToolStripMenuItem});
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
@@ -589,6 +592,20 @@
             this.btnPesquisar.Text = "toolStripButton6";
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
+            // importarToolStripMenuItem
+            // 
+            this.importarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.planilhaToolStripMenuItem});
+            this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
+            this.importarToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.importarToolStripMenuItem.Text = "Importar";
+            // 
+            // planilhaToolStripMenuItem
+            // 
+            this.planilhaToolStripMenuItem.Name = "planilhaToolStripMenuItem";
+            this.planilhaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.planilhaToolStripMenuItem.Text = "Planilha ";
+            // 
             // FrmJanelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -682,6 +699,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColValorPago;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStatus;
+        private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem planilhaToolStripMenuItem;
     }
 }
 
