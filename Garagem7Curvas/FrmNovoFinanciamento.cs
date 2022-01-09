@@ -17,6 +17,12 @@ namespace Garagem7Curvas
     {
 
         FrmJanelaPrincipal janelaPrincipal;
+        //configuração de impressao
+        public Font fonte = new Font("Arial", 12);
+        public Brush cor = new SolidBrush(Color.Black);
+        bool imprimirVerso = false;
+
+
         public FrmAddFinanciamento(FrmJanelaPrincipal janelaPrincipal)
         {
             InitializeComponent();
@@ -84,8 +90,14 @@ namespace Garagem7Curvas
 
             try
             {
-                await colRef.AddAsync(registro);
-                janelaPrincipal.getFinanciamentos();
+                this.Enabled = false;
+                await colRef.AddAsync(registro);                               
+                janelaPrincipal.getFinanciamentos();               
+                if( MessageBox.Show("Registro adicionado com sucesso.\nDeseja imprimir a ficha?","Imprimir ficha", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    printDocument1.Print();
+                }
+                this.Enabled = true;
             }
             catch (System.Exception )
             {
@@ -355,6 +367,76 @@ namespace Garagem7Curvas
             if (!string.IsNullOrEmpty(tbValor.Text))
             {
                 
+            }
+        }
+
+
+        private void printDocument1_BeginPrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            printDialog1.ShowDialog();
+        }
+
+        private void printDocument1_PrintPage_1(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            float marginLeft = 100;
+            float marginTop = 56.92f;
+
+            if (imprimirVerso == false)
+            {
+                //primeira linha impressao frente
+                e.Graphics.DrawString("Cliente: " + tbNome.Text, fonte, cor, marginLeft, marginTop);
+                e.Graphics.DrawString("CPF: " + tbCpf.Text, fonte, cor, marginLeft + 450, marginTop);
+                //segunda  linha impressao frente
+                e.Graphics.DrawString("Endereço: " + tbEndereco.Text, fonte, cor, marginLeft, marginTop + 26.45f * 1);
+                e.Graphics.DrawString("Numero: " + tbNumero.Text, fonte, cor, marginLeft + 450, marginTop + 26.45f * 1);
+                //terceira linha impressao frente
+                e.Graphics.DrawString("Bairro: " + tbBairro.Text, fonte, cor, marginLeft, marginTop + 26.45f * 2);
+                e.Graphics.DrawString("CEP: " + tbCep.Text, fonte, cor, marginLeft + 450, marginTop + 26.45f * 2);
+                //quarta linha impressao frente
+                e.Graphics.DrawString("Cidade: " + tbCidade.Text, fonte, cor, marginLeft, marginTop + 26.45f * 3);
+                e.Graphics.DrawString("Estado: " + cbEstado.Text, fonte, cor, marginLeft + 450, marginTop + 26.45f * 3);
+                //quinta linha impressao frente
+                e.Graphics.DrawString("Telefone: " + tbTelefone.Text, fonte, cor, marginLeft, marginTop + 26.45f * 4);
+                e.Graphics.DrawString("Celular: " + tbCelular.Text, fonte, cor, marginLeft + 450, marginTop + 26.45f * 4);
+                //sexta linha impressao frente
+                e.Graphics.DrawString("Email: " + tbEmail.Text, fonte, cor, marginLeft, marginTop + 26.45f * 5);
+                e.Graphics.DrawString("1ª parcela: " + dtPrimeiraParcela.Value.Date.ToString().Remove(10), fonte, cor, marginLeft+450, marginTop + 26.45f * 5);
+                //setima linha impressao frente
+                e.Graphics.DrawString("Prazo: " + cbPrazo.Text, fonte, cor, marginLeft, marginTop + 26.45f * 6);
+                e.Graphics.DrawString("Valor: " + tbValor.Text, fonte, cor, marginLeft+450, marginTop + 26.45f * 6);
+                
+            }
+            else
+            {
+                marginLeft = 50;
+                //primeira linha impressao verso
+
+
+                for (int i = 0, j=0; i < int.Parse(cbPrazo.Text); i++)
+                {
+                    if(i % 10 == 0 && i != 0)
+                    {
+                        j = 0;
+                        e.Graphics.DrawString((i + 1).ToString() + "  " + dtPrimeiraParcela.Value.Date.AddMonths(i).ToString().Remove(10), new Font(new Font("Arial", 8), FontStyle.Bold), cor, marginLeft+=160, marginTop + 24.45f * (++j));
+                        
+                    }
+                    else
+                    {
+                        e.Graphics.DrawString((i+1).ToString() + "  " + dtPrimeiraParcela.Value.Date.AddMonths(i).ToString().Remove(10), new Font(new Font("Arial", 8), FontStyle.Bold), cor, marginLeft, marginTop+24.45f*(++j));
+                    }
+                    
+                }
+
+                
+                e.HasMorePages = false;
+                return;
+            }
+
+            //imprimir verso
+            if (MessageBox.Show("Deseja imprimir o verso da página?", "Imprimir verso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                e.HasMorePages = true;
+                imprimirVerso = true;
             }
         }
     }

@@ -75,6 +75,9 @@
             this.cbVeiculo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnAddFinanciamento = new System.Windows.Forms.Button();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.grpDadosCliente.SuspendLayout();
             this.grpDadosVeiculo.SuspendLayout();
             this.SuspendLayout();
@@ -597,6 +600,21 @@
             this.btnAddFinanciamento.UseVisualStyleBackColor = true;
             this.btnAddFinanciamento.Click += new System.EventHandler(this.btnAddFinanciamento_Click);
             // 
+            // printDialog1
+            // 
+            this.printDialog1.Document = this.printDocument1;
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.DocumentName = "ficha";
+            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint_1);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage_1);
+            // 
+            // pageSetupDialog1
+            // 
+            this.pageSetupDialog1.Document = this.printDocument1;
+            // 
             // FrmAddFinanciamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -606,6 +624,7 @@
             this.Controls.Add(this.grpDadosVeiculo);
             this.Controls.Add(this.grpDadosCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "FrmAddFinanciamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novo Financiamento";
@@ -666,5 +685,8 @@
         private System.Windows.Forms.Button btnAddFinanciamento;
         private System.Windows.Forms.ComboBox cbPrazo;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        public System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }
 }

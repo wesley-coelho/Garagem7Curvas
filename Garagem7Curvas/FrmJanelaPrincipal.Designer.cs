@@ -41,7 +41,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.btnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.barraStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -168,9 +168,9 @@
             this.toolStripButton1,
             this.btnDelete,
             this.toolStripButton3,
-            this.toolStripButton4,
+            this.btnImprimir,
             this.toolStripButton5});
-            this.toolStrip1.Location = new System.Drawing.Point(4, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(4, 27);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(158, 27);
@@ -208,14 +208,14 @@
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // toolStripButton4
+            // btnImprimir
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.btnImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
+            this.btnImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(29, 24);
+            this.btnImprimir.Text = "toolStripButton4";
             // 
             // toolStripButton5
             // 
@@ -298,7 +298,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.dtgParcelas);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(20);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(20);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 396);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 369);
             this.splitContainer1.SplitterDistance = 419;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -332,7 +332,7 @@
             this.dtgListaFinanciamento.Name = "dtgListaFinanciamento";
             this.dtgListaFinanciamento.RowHeadersWidth = 51;
             this.dtgListaFinanciamento.RowTemplate.Height = 24;
-            this.dtgListaFinanciamento.Size = new System.Drawing.Size(375, 352);
+            this.dtgListaFinanciamento.Size = new System.Drawing.Size(375, 325);
             this.dtgListaFinanciamento.TabIndex = 0;
             this.dtgListaFinanciamento.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaFinanciamento_CellEndEdit);
             this.dtgListaFinanciamento.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgListaFinanciamento_RowHeaderMouseClick);
@@ -498,7 +498,7 @@
             this.dtgParcelas.Name = "dtgParcelas";
             this.dtgParcelas.RowHeadersWidth = 51;
             this.dtgParcelas.RowTemplate.Height = 24;
-            this.dtgParcelas.Size = new System.Drawing.Size(333, 352);
+            this.dtgParcelas.Size = new System.Drawing.Size(333, 325);
             this.dtgParcelas.TabIndex = 0;
             this.dtgParcelas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgParcelas_CellEndEdit);
             // 
@@ -545,7 +545,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 396);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 369);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -556,8 +556,8 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
             // 
             // toolStrip2
             // 
@@ -566,7 +566,7 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tbPesquisar,
             this.btnPesquisar});
-            this.toolStrip2.Location = new System.Drawing.Point(162, 0);
+            this.toolStrip2.Location = new System.Drawing.Point(4, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip2.Size = new System.Drawing.Size(244, 27);
@@ -599,6 +599,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmJanelaPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciamento de Financiamentos de Clientes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
@@ -637,7 +638,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton btnImprimir;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripMenuItem conectarAoFirebaseToolStripMenuItem;
         public System.Windows.Forms.StatusStrip statusStrip1;

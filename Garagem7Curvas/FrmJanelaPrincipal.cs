@@ -18,6 +18,7 @@ namespace Garagem7Curvas
     {
         public FirestoreDb db;
         public Usuario usuario;
+        
 
         public FrmJanelaPrincipal()
         {
@@ -325,5 +326,12 @@ namespace Garagem7Curvas
             tbPesquisar.Text = tbPesquisar.Text.ToUpper();
             tbPesquisar.SelectionStart = tbPesquisar.Text.Length;
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            //printDocument1.Print();
+        }
+
+        
     }
 }
