@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Google.Cloud.Firestore;
+using ClosedXML.Excel;
 
 
 
@@ -332,6 +333,11 @@ namespace Garagem7Curvas
             //printDocument1.Print();
         }
 
-        
+        private void menuImportPlan_Click(object sender, EventArgs e)
+        {
+            var pasta = new XLWorkbook(@"C:\Users\Wesley\Documents\Projeto_Revenda_Veiculo_VBA\Testes\Gerenciamento_financiamentos_clientes.xlsm");
+            var planilha = pasta.Worksheet("Clientes");
+            MessageBox.Show(planilha.Cell(2, 1).Value.ToString()); ;
+        }
     }
 }

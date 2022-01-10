@@ -84,7 +84,7 @@
             this.tbPesquisar = new System.Windows.Forms.ToolStripTextBox();
             this.btnPesquisar = new System.Windows.Forms.ToolStripButton();
             this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.planilhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuImportPlan = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -188,6 +188,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
             this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.ToolTipText = "Adicionar";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // btnDelete
@@ -198,7 +199,7 @@
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(29, 24);
-            this.btnDelete.Text = "toolStripButton2";
+            this.btnDelete.ToolTipText = "Excluir";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // toolStripButton3
@@ -209,6 +210,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(29, 24);
             this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButton3.ToolTipText = "Recarregar";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // btnImprimir
@@ -219,6 +221,7 @@
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(29, 24);
             this.btnImprimir.Text = "toolStripButton4";
+            this.btnImprimir.ToolTipText = "Imprimir";
             // 
             // toolStripButton5
             // 
@@ -580,6 +583,8 @@
             this.tbPesquisar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbPesquisar.Name = "tbPesquisar";
             this.tbPesquisar.Size = new System.Drawing.Size(200, 27);
+            this.tbPesquisar.Text = "Nome do Cliente";
+            this.tbPesquisar.ToolTipText = "Digite o nome";
             this.tbPesquisar.TextChanged += new System.EventHandler(this.tbPesquisar_TextChanged);
             // 
             // btnPesquisar
@@ -590,21 +595,23 @@
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(29, 24);
             this.btnPesquisar.Text = "toolStripButton6";
+            this.btnPesquisar.ToolTipText = "Pesquisar por Nome";
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // importarToolStripMenuItem
             // 
             this.importarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.planilhaToolStripMenuItem});
+            this.menuImportPlan});
             this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
             this.importarToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
             this.importarToolStripMenuItem.Text = "Importar";
             // 
-            // planilhaToolStripMenuItem
+            // menuImportPlan
             // 
-            this.planilhaToolStripMenuItem.Name = "planilhaToolStripMenuItem";
-            this.planilhaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.planilhaToolStripMenuItem.Text = "Planilha ";
+            this.menuImportPlan.Name = "menuImportPlan";
+            this.menuImportPlan.Size = new System.Drawing.Size(224, 26);
+            this.menuImportPlan.Text = "Planilha ";
+            this.menuImportPlan.Click += new System.EventHandler(this.menuImportPlan_Click);
             // 
             // FrmJanelaPrincipal
             // 
@@ -700,7 +707,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColValorPago;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStatus;
         private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem planilhaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuImportPlan;
     }
 }
 
