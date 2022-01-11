@@ -32,6 +32,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conectarAoFirebaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuImportPlan = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +54,16 @@
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dtgListaFinanciamento = new System.Windows.Forms.DataGridView();
+            this.dtgParcelas = new System.Windows.Forms.DataGridView();
+            this.ColParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColValorPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.tbPesquisar = new System.Windows.Forms.ToolStripTextBox();
+            this.btnPesquisar = new System.Windows.Forms.ToolStripButton();
             this.Col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,18 +85,8 @@
             this.ColModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColPlaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColQtdParcelas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgParcelas = new System.Windows.Forms.DataGridView();
-            this.ColParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColValorPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.tbPesquisar = new System.Windows.Forms.ToolStripTextBox();
-            this.btnPesquisar = new System.Windows.Forms.ToolStripButton();
-            this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuImportPlan = new System.Windows.Forms.ToolStripMenuItem();
+            this.colObs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abrirPlanilhaExcel = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -132,6 +134,22 @@
             this.conectarAoFirebaseToolStripMenuItem.Text = "Conectar ao firebase";
             this.conectarAoFirebaseToolStripMenuItem.Click += new System.EventHandler(this.conectarAoFirebaseToolStripMenuItem_Click);
             // 
+            // importarToolStripMenuItem
+            // 
+            this.importarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuImportPlan});
+            this.importarToolStripMenuItem.Enabled = false;
+            this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
+            this.importarToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.importarToolStripMenuItem.Text = "Importar";
+            // 
+            // menuImportPlan
+            // 
+            this.menuImportPlan.Name = "menuImportPlan";
+            this.menuImportPlan.Size = new System.Drawing.Size(224, 26);
+            this.menuImportPlan.Text = "Planilha ";
+            this.menuImportPlan.Click += new System.EventHandler(this.menuImportPlan_Click);
+            // 
             // fecharToolStripMenuItem
             // 
             this.fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
@@ -173,7 +191,7 @@
             this.toolStripButton3,
             this.btnImprimir,
             this.toolStripButton5});
-            this.toolStrip1.Location = new System.Drawing.Point(4, 27);
+            this.toolStrip1.Location = new System.Drawing.Point(4, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(158, 27);
@@ -304,7 +322,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.dtgParcelas);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(20);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(20);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 369);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 396);
             this.splitContainer1.SplitterDistance = 419;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -332,16 +350,125 @@
             this.ColMarca,
             this.ColModelo,
             this.ColPlaca,
-            this.ColQtdParcelas});
+            this.ColQtdParcelas,
+            this.colObs});
             this.dtgListaFinanciamento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgListaFinanciamento.Location = new System.Drawing.Point(20, 20);
             this.dtgListaFinanciamento.Name = "dtgListaFinanciamento";
             this.dtgListaFinanciamento.RowHeadersWidth = 51;
             this.dtgListaFinanciamento.RowTemplate.Height = 24;
-            this.dtgListaFinanciamento.Size = new System.Drawing.Size(375, 325);
+            this.dtgListaFinanciamento.Size = new System.Drawing.Size(375, 352);
             this.dtgListaFinanciamento.TabIndex = 0;
             this.dtgListaFinanciamento.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaFinanciamento_CellEndEdit);
             this.dtgListaFinanciamento.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgListaFinanciamento_RowHeaderMouseClick);
+            // 
+            // dtgParcelas
+            // 
+            this.dtgParcelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgParcelas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColParcela,
+            this.ColVencimento,
+            this.ColValor,
+            this.ColValorPago,
+            this.ColStatus});
+            this.dtgParcelas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgParcelas.Location = new System.Drawing.Point(20, 20);
+            this.dtgParcelas.Name = "dtgParcelas";
+            this.dtgParcelas.RowHeadersWidth = 51;
+            this.dtgParcelas.RowTemplate.Height = 24;
+            this.dtgParcelas.Size = new System.Drawing.Size(333, 352);
+            this.dtgParcelas.TabIndex = 0;
+            this.dtgParcelas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgParcelas_CellEndEdit);
+            // 
+            // ColParcela
+            // 
+            this.ColParcela.HeaderText = "Parcela";
+            this.ColParcela.MinimumWidth = 6;
+            this.ColParcela.Name = "ColParcela";
+            this.ColParcela.ReadOnly = true;
+            this.ColParcela.Width = 125;
+            // 
+            // ColVencimento
+            // 
+            this.ColVencimento.HeaderText = "Vencimento";
+            this.ColVencimento.MinimumWidth = 6;
+            this.ColVencimento.Name = "ColVencimento";
+            this.ColVencimento.Width = 125;
+            // 
+            // ColValor
+            // 
+            this.ColValor.HeaderText = "Valor R$";
+            this.ColValor.MinimumWidth = 6;
+            this.ColValor.Name = "ColValor";
+            this.ColValor.Width = 125;
+            // 
+            // ColValorPago
+            // 
+            this.ColValorPago.HeaderText = "Valor Pago R$";
+            this.ColValorPago.MinimumWidth = 6;
+            this.ColValorPago.Name = "ColValorPago";
+            this.ColValorPago.Width = 125;
+            // 
+            // ColStatus
+            // 
+            this.ColStatus.HeaderText = "Status";
+            this.ColStatus.MinimumWidth = 6;
+            this.ColStatus.Name = "ColStatus";
+            this.ColStatus.Width = 125;
+            // 
+            // toolStripContainer1
+            // 
+            this.toolStripContainer1.BottomToolStripPanelVisible = false;
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 396);
+            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
+            this.toolStripContainer1.Name = "toolStripContainer1";
+            this.toolStripContainer1.RightToolStripPanelVisible = false;
+            this.toolStripContainer1.Size = new System.Drawing.Size(800, 423);
+            this.toolStripContainer1.TabIndex = 3;
+            this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // toolStripContainer1.TopToolStripPanel
+            // 
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tbPesquisar,
+            this.btnPesquisar});
+            this.toolStrip2.Location = new System.Drawing.Point(162, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip2.Size = new System.Drawing.Size(244, 27);
+            this.toolStrip2.TabIndex = 2;
+            // 
+            // tbPesquisar
+            // 
+            this.tbPesquisar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbPesquisar.Name = "tbPesquisar";
+            this.tbPesquisar.Size = new System.Drawing.Size(200, 27);
+            this.tbPesquisar.Text = "Nome do Cliente";
+            this.tbPesquisar.ToolTipText = "Digite o nome";
+            this.tbPesquisar.TextChanged += new System.EventHandler(this.tbPesquisar_TextChanged);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
+            this.btnPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(29, 24);
+            this.btnPesquisar.Text = "toolStripButton6";
+            this.btnPesquisar.ToolTipText = "Pesquisar por Nome";
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // Col
             // 
@@ -490,128 +617,16 @@
             this.ColQtdParcelas.Name = "ColQtdParcelas";
             this.ColQtdParcelas.Width = 125;
             // 
-            // dtgParcelas
+            // colObs
             // 
-            this.dtgParcelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgParcelas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColParcela,
-            this.ColVencimento,
-            this.ColValor,
-            this.ColValorPago,
-            this.ColStatus});
-            this.dtgParcelas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgParcelas.Location = new System.Drawing.Point(20, 20);
-            this.dtgParcelas.Name = "dtgParcelas";
-            this.dtgParcelas.RowHeadersWidth = 51;
-            this.dtgParcelas.RowTemplate.Height = 24;
-            this.dtgParcelas.Size = new System.Drawing.Size(333, 325);
-            this.dtgParcelas.TabIndex = 0;
-            this.dtgParcelas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgParcelas_CellEndEdit);
+            this.colObs.HeaderText = "Obs.:";
+            this.colObs.MinimumWidth = 6;
+            this.colObs.Name = "colObs";
+            this.colObs.Width = 125;
             // 
-            // ColParcela
+            // abrirPlanilhaExcel
             // 
-            this.ColParcela.HeaderText = "Parcela";
-            this.ColParcela.MinimumWidth = 6;
-            this.ColParcela.Name = "ColParcela";
-            this.ColParcela.ReadOnly = true;
-            this.ColParcela.Width = 125;
-            // 
-            // ColVencimento
-            // 
-            this.ColVencimento.HeaderText = "Vencimento";
-            this.ColVencimento.MinimumWidth = 6;
-            this.ColVencimento.Name = "ColVencimento";
-            this.ColVencimento.Width = 125;
-            // 
-            // ColValor
-            // 
-            this.ColValor.HeaderText = "Valor R$";
-            this.ColValor.MinimumWidth = 6;
-            this.ColValor.Name = "ColValor";
-            this.ColValor.Width = 125;
-            // 
-            // ColValorPago
-            // 
-            this.ColValorPago.HeaderText = "Valor Pago R$";
-            this.ColValorPago.MinimumWidth = 6;
-            this.ColValorPago.Name = "ColValorPago";
-            this.ColValorPago.Width = 125;
-            // 
-            // ColStatus
-            // 
-            this.ColStatus.HeaderText = "Status";
-            this.ColStatus.MinimumWidth = 6;
-            this.ColStatus.Name = "ColStatus";
-            this.ColStatus.Width = 125;
-            // 
-            // toolStripContainer1
-            // 
-            this.toolStripContainer1.BottomToolStripPanelVisible = false;
-            // 
-            // toolStripContainer1.ContentPanel
-            // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 369);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 423);
-            this.toolStripContainer1.TabIndex = 3;
-            this.toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // toolStripContainer1.TopToolStripPanel
-            // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tbPesquisar,
-            this.btnPesquisar});
-            this.toolStrip2.Location = new System.Drawing.Point(4, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(244, 27);
-            this.toolStrip2.TabIndex = 2;
-            // 
-            // tbPesquisar
-            // 
-            this.tbPesquisar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tbPesquisar.Name = "tbPesquisar";
-            this.tbPesquisar.Size = new System.Drawing.Size(200, 27);
-            this.tbPesquisar.Text = "Nome do Cliente";
-            this.tbPesquisar.ToolTipText = "Digite o nome";
-            this.tbPesquisar.TextChanged += new System.EventHandler(this.tbPesquisar_TextChanged);
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(29, 24);
-            this.btnPesquisar.Text = "toolStripButton6";
-            this.btnPesquisar.ToolTipText = "Pesquisar por Nome";
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
-            // 
-            // importarToolStripMenuItem
-            // 
-            this.importarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuImportPlan});
-            this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
-            this.importarToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
-            this.importarToolStripMenuItem.Text = "Importar";
-            // 
-            // menuImportPlan
-            // 
-            this.menuImportPlan.Name = "menuImportPlan";
-            this.menuImportPlan.Size = new System.Drawing.Size(224, 26);
-            this.menuImportPlan.Text = "Planilha ";
-            this.menuImportPlan.Click += new System.EventHandler(this.menuImportPlan_Click);
+            this.abrirPlanilhaExcel.FileName = "Selecionar path Planilha";
             // 
             // FrmJanelaPrincipal
             // 
@@ -673,6 +688,19 @@
         private System.Windows.Forms.ToolStripPanel LeftToolStripPanel;
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridView dtgParcelas;
+        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripTextBox tbPesquisar;
+        private System.Windows.Forms.ToolStripButton btnPesquisar;
+        public System.Windows.Forms.DataGridView dtgListaFinanciamento;
+        private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColParcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColVencimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColValorPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColStatus;
+        private System.Windows.Forms.ToolStripMenuItem menuImportPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Col;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCpf;
@@ -694,20 +722,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColModelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColPlaca;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColQtdParcelas;
-        private System.Windows.Forms.DataGridView dtgParcelas;
-        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripTextBox tbPesquisar;
-        private System.Windows.Forms.ToolStripButton btnPesquisar;
-        public System.Windows.Forms.DataGridView dtgListaFinanciamento;
-        private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColParcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColVencimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColValorPago;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColStatus;
-        private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuImportPlan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colObs;
+        private System.Windows.Forms.OpenFileDialog abrirPlanilhaExcel;
+        public System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
     }
 }
 

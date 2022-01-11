@@ -86,6 +86,7 @@ namespace Garagem7Curvas
                 {"Modelo", tbModelo.Text},
                 {"Cor", cbCor.Text},
                 {"Parcelas", parcelas},
+                {"Obs", tbObs.Text},
             };
 
             try

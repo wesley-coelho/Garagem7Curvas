@@ -47,14 +47,16 @@ namespace Garagem7Curvas
                          tbLoginUsuario.Clear();
                          tbSenha.Clear();
                          tbLoginUsuario.Focus();
-                         return;
+                        janelaPrincipal.importarToolStripMenuItem.Enabled = false;
+                        return;
                     }
                         this.Close();
                     janelaPrincipal.barraStatus.Text = "@" + janelaPrincipal.usuario.Username;
                     //chama função getFinanciamentos
                     janelaPrincipal.getFinanciamentos();
-                }
-                lbStatus.Text = "Usuário ou senha incorretos.";
+                    janelaPrincipal.importarToolStripMenuItem.Enabled = true;
+                }               
+             
                 tbLoginUsuario.Clear();
                 tbSenha.Clear();
                 tbLoginUsuario.Focus();

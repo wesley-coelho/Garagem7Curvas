@@ -78,6 +78,8 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.tbObs = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.grpDadosCliente.SuspendLayout();
             this.grpDadosVeiculo.SuspendLayout();
             this.SuspendLayout();
@@ -342,6 +344,8 @@
             // 
             // grpDadosVeiculo
             // 
+            this.grpDadosVeiculo.Controls.Add(this.tbObs);
+            this.grpDadosVeiculo.Controls.Add(this.label21);
             this.grpDadosVeiculo.Controls.Add(this.cbPrazo);
             this.grpDadosVeiculo.Controls.Add(this.label23);
             this.grpDadosVeiculo.Controls.Add(this.tbValor);
@@ -366,7 +370,7 @@
             this.grpDadosVeiculo.Controls.Add(this.label12);
             this.grpDadosVeiculo.Location = new System.Drawing.Point(21, 250);
             this.grpDadosVeiculo.Name = "grpDadosVeiculo";
-            this.grpDadosVeiculo.Size = new System.Drawing.Size(863, 187);
+            this.grpDadosVeiculo.Size = new System.Drawing.Size(863, 216);
             this.grpDadosVeiculo.TabIndex = 1;
             this.grpDadosVeiculo.TabStop = false;
             this.grpDadosVeiculo.Text = "Dados Veículo";
@@ -592,7 +596,7 @@
             // 
             // btnAddFinanciamento
             // 
-            this.btnAddFinanciamento.Location = new System.Drawing.Point(726, 443);
+            this.btnAddFinanciamento.Location = new System.Drawing.Point(726, 472);
             this.btnAddFinanciamento.Name = "btnAddFinanciamento";
             this.btnAddFinanciamento.Size = new System.Drawing.Size(158, 39);
             this.btnAddFinanciamento.TabIndex = 2;
@@ -615,11 +619,28 @@
             // 
             this.pageSetupDialog1.Document = this.printDocument1;
             // 
+            // tbObs
+            // 
+            this.tbObs.Location = new System.Drawing.Point(72, 177);
+            this.tbObs.MaxLength = 20;
+            this.tbObs.Name = "tbObs";
+            this.tbObs.Size = new System.Drawing.Size(776, 22);
+            this.tbObs.TabIndex = 47;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(5, 181);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(38, 17);
+            this.label21.TabIndex = 46;
+            this.label21.Text = "Obs:";
+            // 
             // FrmAddFinanciamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 494);
+            this.ClientSize = new System.Drawing.Size(907, 523);
             this.Controls.Add(this.btnAddFinanciamento);
             this.Controls.Add(this.grpDadosVeiculo);
             this.Controls.Add(this.grpDadosCliente);
@@ -688,5 +709,7 @@
         private System.Windows.Forms.PrintDialog printDialog1;
         public System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.TextBox tbObs;
+        private System.Windows.Forms.Label label21;
     }
 }

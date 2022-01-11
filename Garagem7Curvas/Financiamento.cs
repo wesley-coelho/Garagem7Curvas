@@ -50,6 +50,9 @@ namespace Garagem7Curvas
         public string Placa { get; set; }
         [FirestoreProperty]
         public Parcela[] Parcelas { get; set; }
+        [FirestoreProperty]
+        public string Obs { get; set; }
+       
 
     }
 }

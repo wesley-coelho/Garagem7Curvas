@@ -71,6 +71,7 @@ namespace Garagem7Curvas
                         financiamento.Modelo,
                         financiamento.Placa,
                         financiamento.Parcelas.Length.ToString(),
+                        financiamento.Obs,
                     };
                         dtgListaFinanciamento.Rows.Add(linha);
                     }
@@ -335,9 +336,90 @@ namespace Garagem7Curvas
 
         private void menuImportPlan_Click(object sender, EventArgs e)
         {
-            var pasta = new XLWorkbook(@"C:\Users\Wesley\Documents\Projeto_Revenda_Veiculo_VBA\Testes\Gerenciamento_financiamentos_clientes.xlsm");
-            var planilha = pasta.Worksheet("Clientes");
-            MessageBox.Show(planilha.Cell(2, 1).Value.ToString()); ;
+            OpenFileDialog abrirPlanilhaExcel = new OpenFileDialog();
+           if(abrirPlanilhaExcel.ShowDialog() == DialogResult.OK)
+            {
+                importarDadosExcelToFirestore(abrirPlanilhaExcel.FileName);
+            }            
+            
+        }
+
+
+        private async void importarDadosExcelToFirestore(string pathPlanilha)
+        {
+            var pasta = new XLWorkbook(@pathPlanilha);
+            var planClientes = pasta.Worksheet("Clientes");
+            var planStatus = pasta.Worksheet("Status");
+            var planValPago = pasta.Worksheet("Val_Pgto");
+
+            int linha = 2;
+           
+            while (!string.IsNullOrEmpty(planClientes.Cell(linha, 2).Value.ToString()))
+            {
+                Parcela[] parcelas = new Parcela[int.Parse(planClientes.Cell(linha, 17).Value.ToString())];
+                //gerando o array das parcelas
+                for (int i = 0, l = 2; i < int.Parse(planClientes.Cell(linha, 17).Value.ToString()); i++, l++)
+                {
+                    Parcela parcela = new Parcela();
+                    parcela.Id = (i + 1).ToString();
+                    parcela.Situacao = planStatus.Cell(l, linha-1).Value.ToString();
+                    parcela.ValorNominal = float.Parse(planClientes.Cell(linha, 18).Value.ToString());
+
+                    if ( planValPago.Cell(l, linha - 1).Value.ToString() == "" )
+                        parcela.ValorPago = 0.00f;
+                    else
+                    {
+                        if(planValPago.Cell(l, linha - 1).Value.ToString().Contains(","))
+                            parcela.ValorPago = float.Parse(planValPago.Cell(l, linha - 1).Value.ToString().Replace(",", "."));
+                        else
+                            parcela.ValorPago = float.Parse(planValPago.Cell(l, linha - 1).Value.ToString());
+                    }
+                       
+                    parcela.Vencimento = planClientes.Cell(linha, 19).Value.ToString();
+                    parcelas[i] = parcela;
+                }
+
+                Dictionary<string, object> registro = new Dictionary<string, object>()
+            {
+               //dados cliente
+                {"ClienteNome", planClientes.Cell(linha, 2).Value.ToString()},
+                {"Cpf", planClientes.Cell(linha, 3).Value.ToString()},
+                {"Endereco", planClientes.Cell(linha, 4).Value.ToString() + " " + planClientes.Cell(linha, 5).Value.ToString()},
+                {"Numero", planClientes.Cell(linha, 6).Value.ToString()},
+                {"Cep", ""},
+                {"Bairro", planClientes.Cell(linha, 8).Value.ToString()},
+                {"Cidade", planClientes.Cell(linha, 9).Value.ToString()},
+                {"Estado", ""},
+                {"Telefone", planClientes.Cell(linha, 10).Value.ToString()},
+                {"Celular", planClientes.Cell(linha, 11).Value.ToString()},
+                {"Email", ""},
+                //dados veiculo
+                {"Veiculo", planClientes.Cell(linha, 12).Value.ToString()},
+                {"Chassi", ""},
+                {"Placa", ""},
+                {"CidadeVeiculo", ""},
+                {"AnoVeiculo",planClientes.Cell(linha, 15).Value.ToString()},
+                {"Marca", planClientes.Cell(linha, 13).Value.ToString()},
+                {"Modelo", planClientes.Cell(linha, 14).Value.ToString()},
+                {"Cor", planClientes.Cell(linha, 16).Value.ToString()},
+                {"Parcelas", parcelas},
+                {"Obs", planClientes.Cell(linha, 21).Value.ToString()},
+            };
+
+                try
+                {
+
+                    await db.Collection("financiamentos").AddAsync(registro);
+                    getFinanciamentos();
+                    MessageBox.Show("Dados importados com suxesso.", "Importar Dados de Planilha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                linha +=1;
+            }
+            
         }
     }
 }
