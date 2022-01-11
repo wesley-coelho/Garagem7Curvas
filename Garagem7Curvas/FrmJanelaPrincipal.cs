@@ -421,5 +421,23 @@ namespace Garagem7Curvas
             }
             
         }
+
+        private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripButton1.PerformClick();
+        }
+
+        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnDelete.PerformClick();
+        }
+
+        private void tbPesquisar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnPesquisar.PerformClick();
+            }
+        }
     }
 }

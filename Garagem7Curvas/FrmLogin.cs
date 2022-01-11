@@ -68,5 +68,13 @@ namespace Garagem7Curvas
             }
 
         }
+
+        private void tbSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLoginConectar.PerformClick();
+            }
+        }
     }
 }

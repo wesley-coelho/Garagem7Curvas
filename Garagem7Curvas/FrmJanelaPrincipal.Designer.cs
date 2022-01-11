@@ -34,11 +34,20 @@
             this.conectarAoFirebaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuImportPlan = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerenciarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adicionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.financiamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relatoriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inadimplentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.totalAReceberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.totalRecebidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.programaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
@@ -54,16 +63,6 @@
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dtgListaFinanciamento = new System.Windows.Forms.DataGridView();
-            this.dtgParcelas = new System.Windows.Forms.DataGridView();
-            this.ColParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColValorPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.tbPesquisar = new System.Windows.Forms.ToolStripTextBox();
-            this.btnPesquisar = new System.Windows.Forms.ToolStripButton();
             this.Col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,6 +85,16 @@
             this.ColPlaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColQtdParcelas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colObs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgParcelas = new System.Windows.Forms.DataGridView();
+            this.ColParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColValorPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.tbPesquisar = new System.Windows.Forms.ToolStripTextBox();
+            this.btnPesquisar = new System.Windows.Forms.ToolStripButton();
             this.abrirPlanilhaExcel = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -107,9 +116,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
-            this.adicionarToolStripMenuItem,
             this.editarToolStripMenuItem,
-            this.imprimirToolStripMenuItem,
+            this.relatoriosToolStripMenuItem,
             this.sobreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -122,15 +130,17 @@
             this.inicioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.conectarAoFirebaseToolStripMenuItem,
             this.importarToolStripMenuItem,
+            this.gerenciarUsuariosToolStripMenuItem,
             this.fecharToolStripMenuItem});
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
-            this.inicioToolStripMenuItem.Text = "Inicio";
+            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.inicioToolStripMenuItem.Text = "Programa";
             // 
             // conectarAoFirebaseToolStripMenuItem
             // 
             this.conectarAoFirebaseToolStripMenuItem.Name = "conectarAoFirebaseToolStripMenuItem";
-            this.conectarAoFirebaseToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.conectarAoFirebaseToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.conectarAoFirebaseToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
             this.conectarAoFirebaseToolStripMenuItem.Text = "Conectar ao firebase";
             this.conectarAoFirebaseToolStripMenuItem.Click += new System.EventHandler(this.conectarAoFirebaseToolStripMenuItem_Click);
             // 
@@ -140,46 +150,121 @@
             this.menuImportPlan});
             this.importarToolStripMenuItem.Enabled = false;
             this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
-            this.importarToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.importarToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
             this.importarToolStripMenuItem.Text = "Importar";
             // 
             // menuImportPlan
             // 
             this.menuImportPlan.Name = "menuImportPlan";
-            this.menuImportPlan.Size = new System.Drawing.Size(224, 26);
+            this.menuImportPlan.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.menuImportPlan.Size = new System.Drawing.Size(194, 26);
             this.menuImportPlan.Text = "Planilha ";
             this.menuImportPlan.Click += new System.EventHandler(this.menuImportPlan_Click);
+            // 
+            // gerenciarUsuariosToolStripMenuItem
+            // 
+            this.gerenciarUsuariosToolStripMenuItem.Name = "gerenciarUsuariosToolStripMenuItem";
+            this.gerenciarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
+            this.gerenciarUsuariosToolStripMenuItem.Text = "Gerenciar Usuarios";
             // 
             // fecharToolStripMenuItem
             // 
             this.fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
-            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.fecharToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adicionarToolStripMenuItem,
+            this.excluirToolStripMenuItem,
+            this.imprimirToolStripMenuItem});
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.editarToolStripMenuItem.Text = "Registro";
             // 
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
+            this.adicionarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
             this.adicionarToolStripMenuItem.Text = "Adicionar";
+            this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
-            // editarToolStripMenuItem
+            // excluirToolStripMenuItem
             // 
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
-            this.editarToolStripMenuItem.Text = "Editar";
+            this.excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
+            this.excluirToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
+            this.excluirToolStripMenuItem.Text = "Excluir";
+            this.excluirToolStripMenuItem.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click);
             // 
             // imprimirToolStripMenuItem
             // 
+            this.imprimirToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fichaToolStripMenuItem,
+            this.financiamentoToolStripMenuItem});
             this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.imprimirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
             this.imprimirToolStripMenuItem.Text = "Imprimir";
+            // 
+            // fichaToolStripMenuItem
+            // 
+            this.fichaToolStripMenuItem.Name = "fichaToolStripMenuItem";
+            this.fichaToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.fichaToolStripMenuItem.Text = "Ficha";
+            // 
+            // financiamentoToolStripMenuItem
+            // 
+            this.financiamentoToolStripMenuItem.Name = "financiamentoToolStripMenuItem";
+            this.financiamentoToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.financiamentoToolStripMenuItem.Text = "Financiamento";
+            // 
+            // relatoriosToolStripMenuItem
+            // 
+            this.relatoriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inadimplentesToolStripMenuItem,
+            this.totalAReceberToolStripMenuItem,
+            this.totalRecebidoToolStripMenuItem});
+            this.relatoriosToolStripMenuItem.Name = "relatoriosToolStripMenuItem";
+            this.relatoriosToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.relatoriosToolStripMenuItem.Text = "Relatório";
+            // 
+            // inadimplentesToolStripMenuItem
+            // 
+            this.inadimplentesToolStripMenuItem.Name = "inadimplentesToolStripMenuItem";
+            this.inadimplentesToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
+            this.inadimplentesToolStripMenuItem.Text = "Cobrança";
+            // 
+            // totalAReceberToolStripMenuItem
+            // 
+            this.totalAReceberToolStripMenuItem.Name = "totalAReceberToolStripMenuItem";
+            this.totalAReceberToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
+            this.totalAReceberToolStripMenuItem.Text = "Valor a Receber";
+            // 
+            // totalRecebidoToolStripMenuItem
+            // 
+            this.totalRecebidoToolStripMenuItem.Name = "totalRecebidoToolStripMenuItem";
+            this.totalRecebidoToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
+            this.totalRecebidoToolStripMenuItem.Text = "Valor Recebido";
             // 
             // sobreToolStripMenuItem
             // 
+            this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.programaToolStripMenuItem});
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
-            this.sobreToolStripMenuItem.Text = "Sobre";
+            this.sobreToolStripMenuItem.Text = "Ajuda";
+            // 
+            // programaToolStripMenuItem
+            // 
+            this.programaToolStripMenuItem.Name = "programaToolStripMenuItem";
+            this.programaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.programaToolStripMenuItem.Size = new System.Drawing.Size(401, 26);
+            this.programaToolStripMenuItem.Text = "Sobre o Gerenciamento de Financiamentos";
             // 
             // toolStrip1
             // 
@@ -191,7 +276,7 @@
             this.toolStripButton3,
             this.btnImprimir,
             this.toolStripButton5});
-            this.toolStrip1.Location = new System.Drawing.Point(4, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(4, 27);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(158, 27);
@@ -322,7 +407,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.dtgParcelas);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(20);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(20);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 396);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 369);
             this.splitContainer1.SplitterDistance = 419;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -357,118 +442,10 @@
             this.dtgListaFinanciamento.Name = "dtgListaFinanciamento";
             this.dtgListaFinanciamento.RowHeadersWidth = 51;
             this.dtgListaFinanciamento.RowTemplate.Height = 24;
-            this.dtgListaFinanciamento.Size = new System.Drawing.Size(375, 352);
+            this.dtgListaFinanciamento.Size = new System.Drawing.Size(375, 325);
             this.dtgListaFinanciamento.TabIndex = 0;
             this.dtgListaFinanciamento.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaFinanciamento_CellEndEdit);
             this.dtgListaFinanciamento.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgListaFinanciamento_RowHeaderMouseClick);
-            // 
-            // dtgParcelas
-            // 
-            this.dtgParcelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgParcelas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColParcela,
-            this.ColVencimento,
-            this.ColValor,
-            this.ColValorPago,
-            this.ColStatus});
-            this.dtgParcelas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgParcelas.Location = new System.Drawing.Point(20, 20);
-            this.dtgParcelas.Name = "dtgParcelas";
-            this.dtgParcelas.RowHeadersWidth = 51;
-            this.dtgParcelas.RowTemplate.Height = 24;
-            this.dtgParcelas.Size = new System.Drawing.Size(333, 352);
-            this.dtgParcelas.TabIndex = 0;
-            this.dtgParcelas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgParcelas_CellEndEdit);
-            // 
-            // ColParcela
-            // 
-            this.ColParcela.HeaderText = "Parcela";
-            this.ColParcela.MinimumWidth = 6;
-            this.ColParcela.Name = "ColParcela";
-            this.ColParcela.ReadOnly = true;
-            this.ColParcela.Width = 125;
-            // 
-            // ColVencimento
-            // 
-            this.ColVencimento.HeaderText = "Vencimento";
-            this.ColVencimento.MinimumWidth = 6;
-            this.ColVencimento.Name = "ColVencimento";
-            this.ColVencimento.Width = 125;
-            // 
-            // ColValor
-            // 
-            this.ColValor.HeaderText = "Valor R$";
-            this.ColValor.MinimumWidth = 6;
-            this.ColValor.Name = "ColValor";
-            this.ColValor.Width = 125;
-            // 
-            // ColValorPago
-            // 
-            this.ColValorPago.HeaderText = "Valor Pago R$";
-            this.ColValorPago.MinimumWidth = 6;
-            this.ColValorPago.Name = "ColValorPago";
-            this.ColValorPago.Width = 125;
-            // 
-            // ColStatus
-            // 
-            this.ColStatus.HeaderText = "Status";
-            this.ColStatus.MinimumWidth = 6;
-            this.ColStatus.Name = "ColStatus";
-            this.ColStatus.Width = 125;
-            // 
-            // toolStripContainer1
-            // 
-            this.toolStripContainer1.BottomToolStripPanelVisible = false;
-            // 
-            // toolStripContainer1.ContentPanel
-            // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 396);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 423);
-            this.toolStripContainer1.TabIndex = 3;
-            this.toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // toolStripContainer1.TopToolStripPanel
-            // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tbPesquisar,
-            this.btnPesquisar});
-            this.toolStrip2.Location = new System.Drawing.Point(162, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(244, 27);
-            this.toolStrip2.TabIndex = 2;
-            // 
-            // tbPesquisar
-            // 
-            this.tbPesquisar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tbPesquisar.Name = "tbPesquisar";
-            this.tbPesquisar.Size = new System.Drawing.Size(200, 27);
-            this.tbPesquisar.Text = "Nome do Cliente";
-            this.tbPesquisar.ToolTipText = "Digite o nome";
-            this.tbPesquisar.TextChanged += new System.EventHandler(this.tbPesquisar_TextChanged);
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(29, 24);
-            this.btnPesquisar.Text = "toolStripButton6";
-            this.btnPesquisar.ToolTipText = "Pesquisar por Nome";
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // Col
             // 
@@ -624,6 +601,115 @@
             this.colObs.Name = "colObs";
             this.colObs.Width = 125;
             // 
+            // dtgParcelas
+            // 
+            this.dtgParcelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgParcelas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColParcela,
+            this.ColVencimento,
+            this.ColValor,
+            this.ColValorPago,
+            this.ColStatus});
+            this.dtgParcelas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgParcelas.Location = new System.Drawing.Point(20, 20);
+            this.dtgParcelas.Name = "dtgParcelas";
+            this.dtgParcelas.RowHeadersWidth = 51;
+            this.dtgParcelas.RowTemplate.Height = 24;
+            this.dtgParcelas.Size = new System.Drawing.Size(333, 325);
+            this.dtgParcelas.TabIndex = 0;
+            this.dtgParcelas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgParcelas_CellEndEdit);
+            // 
+            // ColParcela
+            // 
+            this.ColParcela.HeaderText = "Parcela";
+            this.ColParcela.MinimumWidth = 6;
+            this.ColParcela.Name = "ColParcela";
+            this.ColParcela.ReadOnly = true;
+            this.ColParcela.Width = 125;
+            // 
+            // ColVencimento
+            // 
+            this.ColVencimento.HeaderText = "Vencimento";
+            this.ColVencimento.MinimumWidth = 6;
+            this.ColVencimento.Name = "ColVencimento";
+            this.ColVencimento.Width = 125;
+            // 
+            // ColValor
+            // 
+            this.ColValor.HeaderText = "Valor R$";
+            this.ColValor.MinimumWidth = 6;
+            this.ColValor.Name = "ColValor";
+            this.ColValor.Width = 125;
+            // 
+            // ColValorPago
+            // 
+            this.ColValorPago.HeaderText = "Valor Pago R$";
+            this.ColValorPago.MinimumWidth = 6;
+            this.ColValorPago.Name = "ColValorPago";
+            this.ColValorPago.Width = 125;
+            // 
+            // ColStatus
+            // 
+            this.ColStatus.HeaderText = "Status";
+            this.ColStatus.MinimumWidth = 6;
+            this.ColStatus.Name = "ColStatus";
+            this.ColStatus.Width = 125;
+            // 
+            // toolStripContainer1
+            // 
+            this.toolStripContainer1.BottomToolStripPanelVisible = false;
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 369);
+            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
+            this.toolStripContainer1.Name = "toolStripContainer1";
+            this.toolStripContainer1.RightToolStripPanelVisible = false;
+            this.toolStripContainer1.Size = new System.Drawing.Size(800, 423);
+            this.toolStripContainer1.TabIndex = 3;
+            this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // toolStripContainer1.TopToolStripPanel
+            // 
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tbPesquisar,
+            this.btnPesquisar});
+            this.toolStrip2.Location = new System.Drawing.Point(4, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip2.Size = new System.Drawing.Size(283, 27);
+            this.toolStrip2.TabIndex = 2;
+            // 
+            // tbPesquisar
+            // 
+            this.tbPesquisar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbPesquisar.Name = "tbPesquisar";
+            this.tbPesquisar.Size = new System.Drawing.Size(200, 27);
+            this.tbPesquisar.Text = "Nome do Cliente";
+            this.tbPesquisar.ToolTipText = "Digite o nome";
+            this.tbPesquisar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPesquisar_KeyDown);
+            this.tbPesquisar.TextChanged += new System.EventHandler(this.tbPesquisar_TextChanged);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
+            this.btnPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(29, 24);
+            this.btnPesquisar.Text = "toolStripButton6";
+            this.btnPesquisar.ToolTipText = "Pesquisar por Nome";
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // abrirPlanilhaExcel
             // 
             this.abrirPlanilhaExcel.FileName = "Selecionar path Planilha";
@@ -639,7 +725,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmJanelaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gerenciamento de Financiamentos de Clientes";
+            this.Text = "Gerenciamento de Financiamentos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -669,9 +755,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adicionarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imprimirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
@@ -725,6 +809,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colObs;
         private System.Windows.Forms.OpenFileDialog abrirPlanilhaExcel;
         public System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adicionarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excluirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imprimirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fichaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem financiamentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem relatoriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inadimplentesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem totalAReceberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem totalRecebidoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem programaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gerenciarUsuariosToolStripMenuItem;
     }
 }
 

@@ -63,6 +63,7 @@
             this.tbSenha.PasswordChar = '*';
             this.tbSenha.Size = new System.Drawing.Size(256, 27);
             this.tbSenha.TabIndex = 3;
+            this.tbSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSenha_KeyDown);
             // 
             // label2
             // 
