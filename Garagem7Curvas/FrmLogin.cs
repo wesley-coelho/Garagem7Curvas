@@ -55,6 +55,11 @@ namespace Garagem7Curvas
                     //chama função getFinanciamentos
                     janelaPrincipal.getFinanciamentos();
                     janelaPrincipal.importarToolStripMenuItem.Enabled = true;
+                    if (janelaPrincipal.usuario.IsAdmin == true)
+                        janelaPrincipal.gerenciarUsuariosToolStripMenuItem.Enabled = true;
+                    else
+                        janelaPrincipal.gerenciarUsuariosToolStripMenuItem.Enabled = false;
+
                 }               
              
                 tbLoginUsuario.Clear();
@@ -73,6 +78,7 @@ namespace Garagem7Curvas
         {
             if (e.KeyCode == Keys.Enter)
             {
+                btnLoginConectar.Focus();
                 btnLoginConectar.PerformClick();
             }
         }

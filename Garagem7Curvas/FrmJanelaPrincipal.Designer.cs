@@ -163,9 +163,11 @@
             // 
             // gerenciarUsuariosToolStripMenuItem
             // 
+            this.gerenciarUsuariosToolStripMenuItem.Enabled = false;
             this.gerenciarUsuariosToolStripMenuItem.Name = "gerenciarUsuariosToolStripMenuItem";
             this.gerenciarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
             this.gerenciarUsuariosToolStripMenuItem.Text = "Gerenciar Usuarios";
+            this.gerenciarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gerenciarUsuariosToolStripMenuItem_Click);
             // 
             // fecharToolStripMenuItem
             // 
@@ -276,7 +278,7 @@
             this.toolStripButton3,
             this.btnImprimir,
             this.toolStripButton5});
-            this.toolStrip1.Location = new System.Drawing.Point(4, 27);
+            this.toolStrip1.Location = new System.Drawing.Point(4, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(158, 27);
@@ -407,7 +409,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.dtgParcelas);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(20);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(20);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 369);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 396);
             this.splitContainer1.SplitterDistance = 419;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -442,7 +444,7 @@
             this.dtgListaFinanciamento.Name = "dtgListaFinanciamento";
             this.dtgListaFinanciamento.RowHeadersWidth = 51;
             this.dtgListaFinanciamento.RowTemplate.Height = 24;
-            this.dtgListaFinanciamento.Size = new System.Drawing.Size(375, 325);
+            this.dtgListaFinanciamento.Size = new System.Drawing.Size(375, 352);
             this.dtgListaFinanciamento.TabIndex = 0;
             this.dtgListaFinanciamento.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaFinanciamento_CellEndEdit);
             this.dtgListaFinanciamento.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgListaFinanciamento_RowHeaderMouseClick);
@@ -615,7 +617,7 @@
             this.dtgParcelas.Name = "dtgParcelas";
             this.dtgParcelas.RowHeadersWidth = 51;
             this.dtgParcelas.RowTemplate.Height = 24;
-            this.dtgParcelas.Size = new System.Drawing.Size(333, 325);
+            this.dtgParcelas.Size = new System.Drawing.Size(333, 352);
             this.dtgParcelas.TabIndex = 0;
             this.dtgParcelas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgParcelas_CellEndEdit);
             // 
@@ -662,7 +664,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 369);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 396);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -673,8 +675,8 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // toolStrip2
             // 
@@ -683,20 +685,23 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tbPesquisar,
             this.btnPesquisar});
-            this.toolStrip2.Location = new System.Drawing.Point(4, 0);
+            this.toolStrip2.Location = new System.Drawing.Point(162, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(283, 27);
+            this.toolStrip2.Size = new System.Drawing.Size(244, 27);
             this.toolStrip2.TabIndex = 2;
             // 
             // tbPesquisar
             // 
             this.tbPesquisar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbPesquisar.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbPesquisar.Name = "tbPesquisar";
             this.tbPesquisar.Size = new System.Drawing.Size(200, 27);
-            this.tbPesquisar.Text = "Nome do Cliente";
+            this.tbPesquisar.Text = "NOME DO CLIENTE";
             this.tbPesquisar.ToolTipText = "Digite o nome";
+            this.tbPesquisar.Leave += new System.EventHandler(this.tbPesquisar_Leave);
             this.tbPesquisar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPesquisar_KeyDown);
+            this.tbPesquisar.Click += new System.EventHandler(this.tbPesquisar_Click);
             this.tbPesquisar.TextChanged += new System.EventHandler(this.tbPesquisar_TextChanged);
             // 
             // btnPesquisar
@@ -819,7 +824,7 @@
         private System.Windows.Forms.ToolStripMenuItem totalAReceberToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem totalRecebidoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem programaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gerenciarUsuariosToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem gerenciarUsuariosToolStripMenuItem;
     }
 }
 

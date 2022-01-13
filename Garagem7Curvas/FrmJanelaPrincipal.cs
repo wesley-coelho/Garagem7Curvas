@@ -223,6 +223,7 @@ namespace Garagem7Curvas
                     }
                 }
                 dtgListaFinanciamento.Sort(dtgListaFinanciamento.Columns[1], ListSortDirection.Ascending);
+                tbPesquisar.SelectAll();
             }
             catch (Exception)
             {
@@ -438,6 +439,26 @@ namespace Garagem7Curvas
             {
                 btnPesquisar.PerformClick();
             }
+        }
+
+        private void gerenciarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerUsers formUsers = new FrmGerUsers(this);
+            formUsers.Show();
+        }
+
+        private void tbPesquisar_Click(object sender, EventArgs e)
+        {
+            if(tbPesquisar.Text == "NOME DO CLIENTE")
+            {
+                tbPesquisar.Text = "";
+            }
+        }
+
+        private void tbPesquisar_Leave(object sender, EventArgs e)
+        {
+            if (tbPesquisar.Text == "")
+                tbPesquisar.Text = "Nome do Cliente";
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Garagem7Curvas
     [FirestoreData]
     public class Usuario
     {
+        
         [FirestoreProperty]
         public string Username { get; set; }
         [FirestoreProperty]
@@ -18,8 +19,7 @@ namespace Garagem7Curvas
         public bool IsAdmin { get; set; }
         [FirestoreProperty]
         public bool Write { get; set; }
-        [FirestoreProperty]
-        public bool Read { get; set; }
+        
         [FirestoreProperty]
         public bool Edit { get; set; }
         [FirestoreProperty]
