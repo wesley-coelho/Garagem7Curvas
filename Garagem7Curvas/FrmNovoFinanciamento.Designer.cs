@@ -52,6 +52,8 @@
             this.tbNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grpDadosVeiculo = new System.Windows.Forms.GroupBox();
+            this.tbObs = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.cbPrazo = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.tbValor = new System.Windows.Forms.TextBox();
@@ -78,8 +80,6 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.tbObs = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.grpDadosCliente.SuspendLayout();
             this.grpDadosVeiculo.SuspendLayout();
             this.SuspendLayout();
@@ -375,6 +375,24 @@
             this.grpDadosVeiculo.TabStop = false;
             this.grpDadosVeiculo.Text = "Dados Veículo";
             // 
+            // tbObs
+            // 
+            this.tbObs.Location = new System.Drawing.Point(72, 177);
+            this.tbObs.MaxLength = 500;
+            this.tbObs.Name = "tbObs";
+            this.tbObs.Size = new System.Drawing.Size(776, 22);
+            this.tbObs.TabIndex = 47;
+            this.tbObs.TextChanged += new System.EventHandler(this.tbObs_TextChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(5, 181);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(38, 17);
+            this.label21.TabIndex = 46;
+            this.label21.Text = "Obs:";
+            // 
             // cbPrazo
             // 
             this.cbPrazo.FormattingEnabled = true;
@@ -407,7 +425,7 @@
             this.tbValor.Name = "tbValor";
             this.tbValor.Size = new System.Drawing.Size(176, 22);
             this.tbValor.TabIndex = 45;
-            this.tbValor.TextChanged += new System.EventHandler(this.tbValor_TextChanged);
+            this.tbValor.Leave += new System.EventHandler(this.tbValor_Leave);
             // 
             // label22
             // 
@@ -618,23 +636,6 @@
             // pageSetupDialog1
             // 
             this.pageSetupDialog1.Document = this.printDocument1;
-            // 
-            // tbObs
-            // 
-            this.tbObs.Location = new System.Drawing.Point(72, 177);
-            this.tbObs.MaxLength = 20;
-            this.tbObs.Name = "tbObs";
-            this.tbObs.Size = new System.Drawing.Size(776, 22);
-            this.tbObs.TabIndex = 47;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(5, 181);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(38, 17);
-            this.label21.TabIndex = 46;
-            this.label21.Text = "Obs:";
             // 
             // FrmAddFinanciamento
             // 

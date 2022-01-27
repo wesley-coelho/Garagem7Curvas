@@ -56,6 +56,7 @@
             // dgvUsers
             // 
             this.dgvUsers.AllowUserToAddRows = false;
+            this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColId,
@@ -81,21 +82,21 @@
             this.ColId.MinimumWidth = 6;
             this.ColId.Name = "ColId";
             this.ColId.ReadOnly = true;
-            this.ColId.Width = 50;
+            this.ColId.Width = 48;
             // 
             // ColUsuario
             // 
             this.ColUsuario.HeaderText = "Usuario";
             this.ColUsuario.MinimumWidth = 6;
             this.ColUsuario.Name = "ColUsuario";
-            this.ColUsuario.Width = 125;
+            this.ColUsuario.Width = 86;
             // 
             // ColSenha
             // 
             this.ColSenha.HeaderText = "Senha";
             this.ColSenha.MinimumWidth = 6;
             this.ColSenha.Name = "ColSenha";
-            this.ColSenha.Width = 125;
+            this.ColSenha.Width = 78;
             // 
             // ColIsAdmin
             // 
@@ -104,6 +105,7 @@
             this.ColIsAdmin.Name = "ColIsAdmin";
             this.ColIsAdmin.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColIsAdmin.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColIsAdmin.Width = 124;
             // 
             // ColEdicao
             // 
@@ -112,6 +114,7 @@
             this.ColEdicao.Name = "ColEdicao";
             this.ColEdicao.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColEdicao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColEdicao.Width = 74;
             // 
             // ColDeletar
             // 
@@ -120,6 +123,7 @@
             this.ColDeletar.Name = "ColDeletar";
             this.ColDeletar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColDeletar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColDeletar.Width = 83;
             // 
             // ColAdicionar
             // 
@@ -128,6 +132,7 @@
             this.ColAdicionar.Name = "ColAdicionar";
             this.ColAdicionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColAdicionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColAdicionar.Width = 96;
             // 
             // btnAddUser
             // 

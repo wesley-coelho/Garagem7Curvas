@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Correios.CorreiosServiceReference;
 
 
+
 namespace Garagem7Curvas
 {
     public partial class FrmAddFinanciamento : Form
@@ -51,14 +52,11 @@ namespace Garagem7Curvas
             {
                 Parcela parcela = new Parcela();
                 parcela.Id = (i + 1).ToString();
-                parcela.Situacao = "NORMAL";
-                //if (tbValor.Text.Contains(","))
-                //{
-                //    tbValor.Text = tbValor.Text.Replace(",", ".");
-                //}
-                parcela.ValorNominal = float.Parse(tbValor.Text);
-                parcela.ValorPago = 0f;
+                //parcela.Situacao = "NORMAL";                
+                parcela.ValorNominal = System.Math.Round(Convert.ToDouble(tbValor.Text),2);
+                parcela.ValorPago = 0d;
                 parcela.Vencimento = dtPrimeiraParcela.Value.Date.AddMonths(i).ToString().Remove(10);
+                parcela.Observacao = "";
                 parcelas[i] = parcela;
             }
 
@@ -418,7 +416,7 @@ namespace Garagem7Curvas
                     if(i % 10 == 0 && i != 0)
                     {
                         j = 0;
-                        e.Graphics.DrawString((i + 1).ToString() + "  " + dtPrimeiraParcela.Value.Date.AddMonths(i).ToString().Remove(10), new Font(new Font("Arial", 8), FontStyle.Bold), cor, marginLeft+=160, marginTop + 24.45f * (++j));
+                        e.Graphics.DrawString((i + 1).ToString() + "  " + dtPrimeiraParcela.Value.Date.AddMonths(i).ToString().Remove(10), new Font(new Font("Arial", 8), FontStyle.Bold), cor, marginLeft+=130, marginTop + 24.45f * (++j));
                         
                     }
                     else
@@ -439,6 +437,20 @@ namespace Garagem7Curvas
                 e.HasMorePages = true;
                 imprimirVerso = true;
             }
+        }
+
+        private void tbObs_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tbObs.Text))
+            {
+                tbObs.Text = tbObs.Text.ToUpper();
+                tbObs.SelectionStart = tbObs.Text.Length;
+            }
+        }
+
+        private void tbValor_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -26,6 +26,7 @@ namespace Garagem7Curvas
         
         private async void btnLoginConectar_Click(object sender, EventArgs e)
         {
+            this.UseWaitCursor = true;
             lbStatus.Text = "logando...";
             string path = AppDomain.CurrentDomain.BaseDirectory + @"garagem7curvas-firebase.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
@@ -48,6 +49,7 @@ namespace Garagem7Curvas
                          tbSenha.Clear();
                          tbLoginUsuario.Focus();
                         janelaPrincipal.importarToolStripMenuItem.Enabled = false;
+                        this.UseWaitCursor = false;
                         return;
                     }
                         this.Close();
@@ -65,11 +67,13 @@ namespace Garagem7Curvas
                 tbLoginUsuario.Clear();
                 tbSenha.Clear();
                 tbLoginUsuario.Focus();
+                this.UseWaitCursor = false;
                 return;
             }
             catch (Exception ex)            {
 
                 MessageBox.Show(ex.Message);
+                this.UseWaitCursor = false;
             }
 
         }
