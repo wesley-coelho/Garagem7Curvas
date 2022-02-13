@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAtrasados));
             this.listaAtrasados = new System.Windows.Forms.DataGridView();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.linhas = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblSoma = new System.Windows.Forms.ToolStripStatusLabel();
             this.ColNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCelular = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +43,10 @@
             this.ColValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColValorPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColObs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.linhas = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblSoma = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.listaAtrasados)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -80,43 +81,8 @@
             this.listaAtrasados.RowTemplate.Height = 24;
             this.listaAtrasados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.listaAtrasados.Size = new System.Drawing.Size(927, 450);
-            this.listaAtrasados.TabIndex = 0;  
+            this.listaAtrasados.TabIndex = 0;
             this.listaAtrasados.SelectionChanged += new System.EventHandler(this.listaAtrasados_SelectionChanged);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.AllowItemReorder = true;
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.progressBar,
-            this.linhas,
-            this.lblSoma});
-            this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.statusStrip1.Location = new System.Drawing.Point(0, 424);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.statusStrip1.Size = new System.Drawing.Size(927, 26);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // progressBar
-            // 
-            this.progressBar.MarqueeAnimationSpeed = 1;
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(100, 18);
-            // 
-            // linhas
-            // 
-            this.linhas.Name = "linhas";
-            this.linhas.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.linhas.Size = new System.Drawing.Size(65, 20);
-            this.linhas.Text = "Parcelas:";
-            // 
-            // lblSoma
-            // 
-            this.lblSoma.Name = "lblSoma";
-            this.lblSoma.Size = new System.Drawing.Size(54, 20);
-            this.lblSoma.Text = "Soma: ";
             // 
             // ColNome
             // 
@@ -224,6 +190,41 @@
             this.ColObs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ColObs.Width = 91;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.AllowItemReorder = true;
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.progressBar,
+            this.linhas,
+            this.lblSoma});
+            this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 424);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.statusStrip1.Size = new System.Drawing.Size(927, 26);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // progressBar
+            // 
+            this.progressBar.MarqueeAnimationSpeed = 1;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(100, 18);
+            // 
+            // linhas
+            // 
+            this.linhas.Name = "linhas";
+            this.linhas.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.linhas.Size = new System.Drawing.Size(65, 20);
+            this.linhas.Text = "Parcelas:";
+            // 
+            // lblSoma
+            // 
+            this.lblSoma.Name = "lblSoma";
+            this.lblSoma.Size = new System.Drawing.Size(54, 20);
+            this.lblSoma.Text = "Soma: ";
+            // 
             // FrmAtrasados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -233,6 +234,7 @@
             this.ClientSize = new System.Drawing.Size(927, 450);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.listaAtrasados);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAtrasados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Em atraso";

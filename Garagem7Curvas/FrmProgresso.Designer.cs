@@ -75,8 +75,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ProgressBar progressBar1;
         public System.Windows.Forms.Label nClientes;
+        public System.Windows.Forms.Label label1;
     }
 }

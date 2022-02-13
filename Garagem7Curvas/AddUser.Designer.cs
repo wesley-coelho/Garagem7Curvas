@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUser));
             this.label1 = new System.Windows.Forms.Label();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.tbSenha = new System.Windows.Forms.TextBox();
@@ -62,6 +63,7 @@
             // tbSenha
             // 
             this.tbSenha.Location = new System.Drawing.Point(18, 108);
+            this.tbSenha.MaxLength = 12;
             this.tbSenha.Name = "tbSenha";
             this.tbSenha.PasswordChar = '*';
             this.tbSenha.Size = new System.Drawing.Size(242, 22);
@@ -80,6 +82,7 @@
             // tbRepeatSenha
             // 
             this.tbRepeatSenha.Location = new System.Drawing.Point(18, 165);
+            this.tbRepeatSenha.MaxLength = 12;
             this.tbRepeatSenha.Name = "tbRepeatSenha";
             this.tbRepeatSenha.PasswordChar = '*';
             this.tbRepeatSenha.Size = new System.Drawing.Size(242, 22);
@@ -154,6 +157,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grplogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AddUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

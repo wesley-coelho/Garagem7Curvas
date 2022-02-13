@@ -28,15 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmValorAReceber));
             this.label1 = new System.Windows.Forms.Label();
             this.cbOpRelValorAReceber = new System.Windows.Forms.ComboBox();
             this.dgvValReceber = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbValorTotal = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.ColCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +42,11 @@
             this.ColParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbValorTotal = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.progressBarValAReceber = new System.Windows.Forms.ToolStripProgressBar();
             this.linhasValAReceber = new System.Windows.Forms.ToolStripStatusLabel();
@@ -89,8 +90,8 @@
             // 
             this.dgvValReceber.AllowUserToAddRows = false;
             this.dgvValReceber.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.dgvValReceber.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.dgvValReceber.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvValReceber.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvValReceber.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvValReceber.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -111,58 +112,6 @@
             this.dgvValReceber.Size = new System.Drawing.Size(911, 299);
             this.dgvValReceber.TabIndex = 2;
             this.dgvValReceber.SelectionChanged += new System.EventHandler(this.dgvValReceber_SelectionChanged);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(646, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Total:";
-            // 
-            // tbValorTotal
-            // 
-            this.tbValorTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbValorTotal.Location = new System.Drawing.Point(699, 19);
-            this.tbValorTotal.Name = "tbValorTotal";
-            this.tbValorTotal.Size = new System.Drawing.Size(150, 22);
-            this.tbValorTotal.TabIndex = 4;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.cbOpRelValorAReceber);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(931, 67);
-            this.panel1.TabIndex = 5;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.tbValorTotal);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(10, 223);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
-            this.panel2.Size = new System.Drawing.Size(911, 60);
-            this.panel2.TabIndex = 6;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.statusStrip1);
-            this.panel3.Controls.Add(this.dgvValReceber);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 67);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(931, 319);
-            this.panel3.TabIndex = 7;
             // 
             // ColCliente
             // 
@@ -245,6 +194,59 @@
             this.ColValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ColValor.Width = 69;
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(646, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Total:";
+            // 
+            // tbValorTotal
+            // 
+            this.tbValorTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbValorTotal.Location = new System.Drawing.Point(699, 19);
+            this.tbValorTotal.Name = "tbValorTotal";
+            this.tbValorTotal.ReadOnly = true;
+            this.tbValorTotal.Size = new System.Drawing.Size(150, 22);
+            this.tbValorTotal.TabIndex = 4;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cbOpRelValorAReceber);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
+            this.panel1.Size = new System.Drawing.Size(931, 67);
+            this.panel1.TabIndex = 5;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tbValorTotal);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(10, 223);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.panel2.Size = new System.Drawing.Size(911, 60);
+            this.panel2.TabIndex = 6;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel2);
+            this.panel3.Controls.Add(this.statusStrip1);
+            this.panel3.Controls.Add(this.dgvValReceber);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 67);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(10);
+            this.panel3.Size = new System.Drawing.Size(931, 319);
+            this.panel3.TabIndex = 7;
+            // 
             // statusStrip1
             // 
             this.statusStrip1.AllowItemReorder = true;
@@ -287,6 +289,7 @@
             this.ClientSize = new System.Drawing.Size(931, 386);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmValorAReceber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Valor a receber";

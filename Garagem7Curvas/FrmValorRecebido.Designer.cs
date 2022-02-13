@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmValorRecebido));
             this.cbOpRelValorRecebido = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dgvValRecebido = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbValRecebido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.progressBarRecebido = new System.Windows.Forms.ToolStripProgressBar();
             this.ParcelasRecebidas = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblSomaRecebido = new System.Windows.Forms.ToolStripStatusLabel();
+            this.dgvValRecebido = new System.Windows.Forms.DataGridView();
             this.ColCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,11 +52,12 @@
             this.ColValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDataPagto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColValorPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvValRecebido)).BeginInit();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvValRecebido)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbOpRelValorRecebido
@@ -98,46 +99,6 @@
             this.panel3.Size = new System.Drawing.Size(800, 383);
             this.panel3.TabIndex = 10;
             // 
-            // dgvValRecebido
-            // 
-            this.dgvValRecebido.AllowUserToAddRows = false;
-            this.dgvValRecebido.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.dgvValRecebido.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvValRecebido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvValRecebido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvValRecebido.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColCliente,
-            this.ColVeiculo,
-            this.ColMarca,
-            this.ColModelo,
-            this.ColAno,
-            this.ColCor,
-            this.ColParcela,
-            this.ColVencimento,
-            this.ColValor,
-            this.ColDataPagto,
-            this.ColValorPago});
-            this.dgvValRecebido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvValRecebido.Location = new System.Drawing.Point(10, 10);
-            this.dgvValRecebido.Name = "dgvValRecebido";
-            this.dgvValRecebido.RowHeadersWidth = 51;
-            this.dgvValRecebido.RowTemplate.Height = 24;
-            this.dgvValRecebido.Size = new System.Drawing.Size(780, 363);
-            this.dgvValRecebido.TabIndex = 2;
-            this.dgvValRecebido.SelectionChanged += new System.EventHandler(this.dgvValRecebido_SelectionChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.cbOpRelValorRecebido);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(800, 67);
-            this.panel1.TabIndex = 8;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.tbValRecebido);
@@ -154,6 +115,7 @@
             this.tbValRecebido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbValRecebido.Location = new System.Drawing.Point(568, 19);
             this.tbValRecebido.Name = "tbValRecebido";
+            this.tbValRecebido.ReadOnly = true;
             this.tbValRecebido.Size = new System.Drawing.Size(150, 22);
             this.tbValRecebido.TabIndex = 4;
             // 
@@ -201,6 +163,35 @@
             this.lblSomaRecebido.Name = "lblSomaRecebido";
             this.lblSomaRecebido.Size = new System.Drawing.Size(54, 20);
             this.lblSomaRecebido.Text = "Soma: ";
+            // 
+            // dgvValRecebido
+            // 
+            this.dgvValRecebido.AllowUserToAddRows = false;
+            this.dgvValRecebido.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.dgvValRecebido.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvValRecebido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvValRecebido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvValRecebido.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColCliente,
+            this.ColVeiculo,
+            this.ColMarca,
+            this.ColModelo,
+            this.ColAno,
+            this.ColCor,
+            this.ColParcela,
+            this.ColVencimento,
+            this.ColValor,
+            this.ColDataPagto,
+            this.ColValorPago});
+            this.dgvValRecebido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvValRecebido.Location = new System.Drawing.Point(10, 10);
+            this.dgvValRecebido.Name = "dgvValRecebido";
+            this.dgvValRecebido.RowHeadersWidth = 51;
+            this.dgvValRecebido.RowTemplate.Height = 24;
+            this.dgvValRecebido.Size = new System.Drawing.Size(780, 363);
+            this.dgvValRecebido.TabIndex = 2;
+            this.dgvValRecebido.SelectionChanged += new System.EventHandler(this.dgvValRecebido_SelectionChanged);
             // 
             // ColCliente
             // 
@@ -301,6 +292,17 @@
             this.ColValorPago.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ColValorPago.Width = 106;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cbOpRelValorRecebido);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
+            this.panel1.Size = new System.Drawing.Size(800, 67);
+            this.panel1.TabIndex = 8;
+            // 
             // FrmValorRecebido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -308,19 +310,20 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmValorRecebido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Valor recebido";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvValRecebido)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvValRecebido)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

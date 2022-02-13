@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddFinanciamento));
             this.grpDadosCliente = new System.Windows.Forms.GroupBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -646,6 +647,7 @@
             this.Controls.Add(this.grpDadosVeiculo);
             this.Controls.Add(this.grpDadosCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmAddFinanciamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

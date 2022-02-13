@@ -38,27 +38,30 @@ namespace Garagem7Curvas
 
         public async void getFinanciamentos()
         {
-            try
+            if(usuario != null)
             {
-                CollectionReference colRef = db.Collection("financiamentos");
-                QuerySnapshot qSnap = await colRef.GetSnapshotAsync();
-                dtgListaFinanciamento.Rows.Clear();
-                await Task.Delay(500);
-                progressBar.Visible = true;
-                progressBar.Step = 10;
-                progressBar.Value = 0;
-                progressBar.Minimum = 0;
-                progressBar.Maximum = qSnap.Count;
-
-                foreach (var doc in qSnap)
+                try
                 {
+                    CollectionReference colRef = db.Collection("financiamentos");
+                    QuerySnapshot qSnap = await colRef.GetSnapshotAsync();
+                    dtgListaFinanciamento.Rows.Clear();
+                    dtgParcelas.Rows.Clear();
+                    await Task.Delay(500);
+                    progressBar.Visible = true;
+                    progressBar.Step = 10;
+                    progressBar.Value = 0;
+                    progressBar.Minimum = 0;
+                    progressBar.Maximum = qSnap.Count;
 
-                    if (doc.Exists)
+                    foreach (var doc in qSnap)
                     {
-                        progressBar.Value = progressBar.Value + 1;
-                        Financiamento financiamento = doc.ConvertTo<Financiamento>();
-                        string[] linha =
+
+                        if (doc.Exists)
                         {
+                            progressBar.Value = progressBar.Value + 1;
+                            Financiamento financiamento = doc.ConvertTo<Financiamento>();
+                            string[] linha =
+                            {
                         doc.Id,
                         financiamento.ClienteNome,
                         financiamento.Cpf,
@@ -82,21 +85,19 @@ namespace Garagem7Curvas
                         financiamento.Parcelas.Length.ToString(),
                         financiamento.Obs,
                     };
-                        dtgListaFinanciamento.Rows.Add(linha);
-                        
-                    }
-                }
-                dtgListaFinanciamento.Sort(dtgListaFinanciamento.Columns[1], ListSortDirection.Ascending);
-                await Task.Delay(500);
-                progressBar.Visible = false;
-            }
-            catch (Exception)
-            {
+                            dtgListaFinanciamento.Rows.Add(linha);
 
-             
+                        }
+                    }
+                    dtgListaFinanciamento.Sort(dtgListaFinanciamento.Columns[1], ListSortDirection.Ascending);
+                    await Task.Delay(500);
+                    progressBar.Visible = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            
-            
         }
 
         private async void dtgListaFinanciamento_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -167,8 +168,17 @@ namespace Garagem7Curvas
         {
            if(usuario != null)
             {
-                FrmAddFinanciamento novoFinanciamento = new FrmAddFinanciamento(this);
-                novoFinanciamento.Show();
+                if (usuario.Write == true || usuario.IsAdmin == true)
+                {
+                    FrmAddFinanciamento novoFinanciamento = new FrmAddFinanciamento(this);
+                    novoFinanciamento.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Acesso negado!", "Acesso negado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                }
+                
             }
             
 
@@ -176,31 +186,47 @@ namespace Garagem7Curvas
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
-            if(dtgListaFinanciamento.SelectedRows.Count != 0)
+         
+            if (dtgListaFinanciamento.SelectedRows.Count != 0)
             {
                 btnDelete.Enabled = true;
-                
-               if(MessageBox.Show("Confirma exclusão DEFINITIVA da base de dados?","Exclusão", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
-                    try
+
+                if( usuario != null)
+                    if(usuario.Delete == true || usuario.IsAdmin == true)
                     {
-                        foreach (DataGridViewRow row in dtgListaFinanciamento.SelectedRows)
+                        if (MessageBox.Show("Confirma exclusão DEFINITIVA da base de dados?", "Exclusão", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                         {
-                            string key = row.Cells[0].Value.ToString();
-                            await db.Collection("financiamentos").Document(key).DeleteAsync();
+                            progressBar.Maximum = dtgListaFinanciamento.SelectedRows.Count;
+                            progressBar.Minimum = 0;
+                            progressBar.Value = 0;
+                            progressBar.Visible = true;
 
+                            try
+                            {
+                                foreach (DataGridViewRow row in dtgListaFinanciamento.SelectedRows)
+                                {
+                                    string key = row.Cells[0].Value.ToString();
+                                    progressBar.Value++;
+                                    barraStatus.Text = "Apagando: " + row.Cells[1].Value.ToString();
+                                    await db.Collection("financiamentos").Document(key).DeleteAsync();
+
+                                }
+                                progressBar.Visible = false;
+                                barraStatus.Text = "@" + usuario.Username;
+                                getFinanciamentos();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Erro ao excluir.\n" + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                              
+                            }
                         }
-                        
-                       
-                        getFinanciamentos();
-
                     }
-                    catch (Exception)
+                    else
                     {
-
-
+                        MessageBox.Show("Acesso negado!", "Acesso negado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                }
+               
                
             }
             else
@@ -287,16 +313,18 @@ namespace Garagem7Curvas
 
         private async void dtgListaFinanciamento_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if(usuario.IsAdmin == true || usuario.Edit == true)
             {
-
-                string key = dtgListaFinanciamento.Rows[e.RowIndex].Cells[0].Value.ToString();
-                string updateValue = "";
-                if(dtgListaFinanciamento.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-                    updateValue = dtgListaFinanciamento.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().ToUpper();
-                dtgListaFinanciamento.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = updateValue;
-                string[] prop =
+                try
                 {
+
+                    string key = dtgListaFinanciamento.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    string updateValue = "";
+                    if (dtgListaFinanciamento.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                        updateValue = dtgListaFinanciamento.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().ToUpper();
+                    dtgListaFinanciamento.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = updateValue;
+                    string[] prop =
+                    {
                    "Id",
                    "ClienteNome",
                    "Cpf",
@@ -321,16 +349,16 @@ namespace Garagem7Curvas
                    "Obs"
                 };
 
-                if (prop[e.ColumnIndex] == "Parcelas")
-                    await db.Collection("financiamentos").Document(key).UpdateAsync(prop[e.ColumnIndex], int.Parse(updateValue));
-               else
-                    await db.Collection("financiamentos").Document(key).UpdateAsync(prop[e.ColumnIndex], updateValue);
-            }
-            catch (Exception)
-            {
-
-                
-            }
+                    if (prop[e.ColumnIndex] == "Parcelas")
+                        await db.Collection("financiamentos").Document(key).UpdateAsync(prop[e.ColumnIndex], int.Parse(updateValue));
+                    else
+                        await db.Collection("financiamentos").Document(key).UpdateAsync(prop[e.ColumnIndex], updateValue);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao atualizar dados.\n" + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }            
         }
 
         
@@ -368,6 +396,10 @@ namespace Garagem7Curvas
                 var planParcelas = pasta.Worksheet("Parcelas");
 
                 int linha = 2;
+                progressBar.Visible = true;
+                progressBar.Maximum = planClientes.Column(2).CellsUsed().Count<IXLCell>()-1;
+                progressBar.Minimum = 0;
+                progressBar.Value = 0;
 
                 while (!string.IsNullOrEmpty(planClientes.Cell(linha, 2).Value.ToString()))
                 {
@@ -420,10 +452,12 @@ namespace Garagem7Curvas
 
                     try
                     {
-
+                        progressBar.Value++;
+                        barraStatus.Text = "Importando: " + planClientes.Cell(linha, 2).Value.ToString();
                         await db.Collection("financiamentos").AddAsync(registro);
-                        getFinanciamentos();
                         
+
+
                     }
                     catch (System.Exception ex)
                     {
@@ -431,6 +465,9 @@ namespace Garagem7Curvas
                     }
                     linha += 1;
                 }
+                progressBar.Visible = false;
+                barraStatus.Text = "@" + usuario.Username;
+                getFinanciamentos();
                 MessageBox.Show("Dados importados com suxesso.", "Importar Dados de Planilha", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
@@ -487,7 +524,10 @@ namespace Garagem7Curvas
 
         private void dtgParcelas_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            updateDgvParcelasCells(e.RowIndex, e.ColumnIndex);
+            if(usuario.Edit == true || usuario.IsAdmin == true)
+                updateDgvParcelasCells(e.RowIndex, e.ColumnIndex);
+            else
+                MessageBox.Show("Acesso negado!", "Acesso negado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void dtgListaFinanciamento_Leave(object sender, EventArgs e)
@@ -505,8 +545,9 @@ namespace Garagem7Curvas
 
         private void dtgParcelas_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            if(dtgParcelas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            valorDaCelularAntesDaEdicao= dtgParcelas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                dtgParcelas.ReadOnly = false;
+                if (dtgParcelas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                    valorDaCelularAntesDaEdicao = dtgParcelas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
           
         }
 
@@ -622,7 +663,8 @@ namespace Garagem7Curvas
                                     situacao.Style.BackColor = Color.LimeGreen;
                                     diferenca.Value = valorPago - valorNominal;
                                     financiamento.Parcelas[rowIndex].DataPgto = DateTime.Now.ToShortDateString();
-                                    dataPgto.Value = DateTime.Now.ToShortDateString();
+                                    if(string.IsNullOrEmpty(valorDaCelularAntesDaEdicao))
+                                        dataPgto.Value = DateTime.Now.ToShortDateString();
                                     //financiamento.Parcelas[rowIndex].Situacao = "PAGO";
                                 }
                                 else if( valorPago < valorNominal && valorPago != 0)
@@ -631,7 +673,8 @@ namespace Garagem7Curvas
                                     situacao.Style.BackColor = Color.Orange;
                                     diferenca.Value = valorPago - valorNominal;
                                     financiamento.Parcelas[rowIndex].DataPgto = DateTime.Now.ToShortDateString();
-                                    dataPgto.Value = DateTime.Now.ToShortDateString();
+                                    if (string.IsNullOrEmpty(valorDaCelularAntesDaEdicao))
+                                        dataPgto.Value = DateTime.Now.ToShortDateString();
                                     // financiamento.Parcelas[rowIndex].Situacao = "PENDENTE";
                                 } else if( valorPago == 0 && venc >= DateTime.Today)
                                 {
@@ -849,7 +892,11 @@ namespace Garagem7Curvas
 
         private void dtgListaFinanciamento_Click(object sender, EventArgs e)
         {
-          
+            if (usuario.Edit == false)
+                dtgListaFinanciamento.ReadOnly = true;
+            else
+                dtgListaFinanciamento.ReadOnly = false;
+
             if (dtgListaFinanciamento.SelectedRows.Count != 1 )
             {
                 btnImprimir.Enabled = false;
@@ -883,6 +930,7 @@ namespace Garagem7Curvas
 
         private void imprimirFichaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+                        
             dtgListaFinanciamento.Enabled = false;
             printDialogFicha.Document = printFicha;
             if (printDialogFicha.ShowDialog() == DialogResult.Cancel)
@@ -1020,12 +1068,15 @@ namespace Garagem7Curvas
                 inadimplentesToolStripMenuItem.Enabled = false;
                 totalAReceberToolStripMenuItem.Enabled = false;
                 totalRecebidoToolStripMenuItem.Enabled = false;
+                graficosToolStripMenuItem.Enabled = false;
+
             }
             else
             {
                 inadimplentesToolStripMenuItem.Enabled = true;
                 totalAReceberToolStripMenuItem.Enabled = true;
                 totalRecebidoToolStripMenuItem.Enabled = true;
+                graficosToolStripMenuItem.Enabled = true;
             }
 
         }
@@ -1040,6 +1091,50 @@ namespace Garagem7Curvas
         {
             FrmValorRecebido frmValorRecebido = new FrmValorRecebido(this);
             frmValorRecebido.ShowDialog();
+        }
+
+        private void graficosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGraficos formGraficos = new FrmGraficos(this);
+            formGraficos.ShowDialog();
+        }
+
+        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(usuario != null)
+            {
+                logoutMenu.Enabled = true;
+                conectarAoFirebaseToolStripMenuItem.Enabled = false;
+
+            }
+            else
+            {
+                conectarAoFirebaseToolStripMenuItem.Enabled = true;
+                logoutMenu.Enabled = false;
+                gerenciarUsuariosToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        private void logoutMenu_Click(object sender, EventArgs e)
+        {
+            usuario = null;
+            dtgListaFinanciamento.Rows.Clear();
+            dtgParcelas.Rows.Clear();
+            barraStatus.Text = "";
+        }
+
+        private void dtgListaFinanciamento_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+               
+           
+        }
+
+        private void dtgParcelas_Click(object sender, EventArgs e)
+        {
+            if (usuario.Edit == false)
+                dtgParcelas.ReadOnly = true;
+            else
+                dtgParcelas.ReadOnly = false;
         }
     }
 }
